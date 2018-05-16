@@ -1,0 +1,54 @@
+This is BibTeX, Version 0.99d (TeX Live 2018/W32TeX)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+A level-1 auxiliary file: data/chap01.aux
+A level-1 auxiliary file: data/chap02.aux
+The style file: thuthesis-numeric.bst
+A level-1 auxiliary file: data/ack.aux
+A level-1 auxiliary file: data/resume.aux
+Database file #1: ref/refs.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Warning--empty year in chuban2001
+Warning--empty year in oclc2000
+You've used 22 entries,
+            3363 wiz_defined-function locations,
+            910 strings with 8910 characters,
+and the built_in function-call counts, 95278 in all, are:
+= -- 9761
+> -- 9583
+< -- 9561
++ -- 3107
+- -- 147
+* -- 604
+:= -- 10512
+add.period$ -- 65
+call.type$ -- 22
+change.case$ -- 45
+chr.to.int$ -- 2707
+cite$ -- 24
+duplicate$ -- 442
+empty$ -- 1232
+format.name$ -- 246
+if$ -- 27554
+int.to.chr$ -- 1
+int.to.str$ -- 23
+missing$ -- 0
+newline$ -- 125
+num.names$ -- 69
+pop$ -- 3870
+preamble$ -- 1
+purify$ -- 22
+quote$ -- 0
+skip$ -- 11346
+stack$ -- 0
+substring$ -- 3145
+swap$ -- 53
+text.length$ -- 176
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 268
+warning$ -- 2
+while$ -- 240
+width$ -- 0
+write$ -- 325
+(There were 2 warnings)
