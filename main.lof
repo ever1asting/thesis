@@ -3,3 +3,7 @@
 \contentsline {figure}{\numberline {2.3}{\ignorespaces 包含子图形的大图形(subfigure示例)\relax }}{16}{figure.caption.18}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces 并排第一个图\relax }}{16}{figure.caption.19}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces 并排第二个图\relax }}{16}{figure.caption.19}
+\contentsline {figure}{\numberline {A-1}{\ignorespaces 根节点CU为64 x 64、深度为4的编码树结构示意图\relax }}{25}{figure.caption.32}
+\contentsline {figure}{\numberline {A-2}{\ignorespaces 基于树剪枝的CU推断方法的步骤\relax }}{27}{figure.caption.33}
+\contentsline {figure}{\numberline {A-3}{\ignorespaces 测试环境与软件参考配置\relax }}{28}{figure.caption.34}
+\contentsline {figure}{\numberline {A-4}{\ignorespaces 文中所提出的算法与HM3.0在编码时间上的对比：(a)低延迟方案；(b)随机访问方案\relax }}{28}{figure.caption.35}

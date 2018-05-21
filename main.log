@@ -1,11 +1,10 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  16 MAY 2018 15:49
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  22 MAY 2018 00:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **main
 (./main.tex
-LaTeX2e <2018-04-01> patch level 2
-Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+LaTeX2e <2018-04-01> patch level 4
 (./thuthesis.cls
 Document Class: thuthesis 2018/04/24 5.4.4 Tsinghua University Thesis Template
 (d:/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
@@ -1946,7 +1945,7 @@ File: t1ntxtlf.fd 2015/01/17 v1.0 font definition file for T1/ntx/tlf
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 12.045pt on input line 19.
  (./main.aux
-(./data/chap01.aux) (./data/chap02.aux) (./data/ack.aux) (./data/resume.aux))
+(./data/chap01.aux) (./data/chap02.aux) (./data/ack.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 19.
@@ -2077,42 +2076,9 @@ LaTeX Info: Redefining \nameref on input line 19.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 (./data/cover.tex)
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 26.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern -2.00792pt
-(hyperref)                removed on input line 26.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\lower' on input line 26.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 26.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                \kern -1.50562pt
-(hyperref)                removed on input line 26.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\spacefactor' on input line 26.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@m' on input line 26.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\\' on input line 27.
-
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 26.09749pt on input line 27.
+
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
@@ -2183,37 +2149,6 @@ LaTeX Font Warning: Font shape `TU/SimHei(0)/bx/n' undefined
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 18.06749pt on input line 27.
-LaTeX Font Info:    Try loading font information for OT1+ntxtlf on input line 2
-7.
-(d:/texlive/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
-File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
-)
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 26.09749pt on input line 27.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 22.08249pt on input line 27.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 16.06pt on input line 27.
-LaTeX Font Info:    Try loading font information for U+ntxmia on input line 27.
-
-
-(d:/texlive/texmf-dist/tex/latex/newtx/untxmia.fd
-File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
-)
-LaTeX Font Info:    Try loading font information for U+ntxsym on input line 27.
-
-
-(d:/texlive/texmf-dist/tex/latex/newtx/untxsym.fd
-File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
-)
-LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 27.
-
-
-(d:/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd
-File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
-)
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 22.08249pt on input line 27.
 \g__fontspec_family_FangSong_int=\count391
 .................................................
 . fontspec info: "no-font-shape"
@@ -2244,10 +2179,35 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 .................................................
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 16.06pt on input line 27.
+LaTeX Font Info:    Try loading font information for OT1+ntxtlf on input line 2
+7.
+(d:/texlive/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
+File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
+)
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 16.06pt on input line 27.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 14.05249pt on input line 27.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 10.53937pt on input line 27.
+LaTeX Font Info:    Try loading font information for U+ntxmia on input line 27.
+
+
+(d:/texlive/texmf-dist/tex/latex/newtx/untxmia.fd
+File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
+)
+LaTeX Font Info:    Try loading font information for U+ntxsym on input line 27.
+
+
+(d:/texlive/texmf-dist/tex/latex/newtx/untxsym.fd
+File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
+)
+LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 27.
+
+
+(d:/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd
+File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
+)
 .................................................
 . fontspec info: "no-font-shape"
 . 
@@ -2280,6 +2240,8 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 
 
 ]
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 22.08249pt on input line 27.
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12.045> not available
 (Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 27.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
@@ -2342,8 +2304,6 @@ File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 12.045pt on input line 27.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 27.
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 9.03374pt on input line 27.
  [1
 
@@ -2360,14 +2320,16 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
- (./data/denotation.tex [4] [5
+ (./data/denotation.tex [4]) [5
 
 
-]) [6]
+]
 \openout2 = `data/chap01.aux'.
 
  (./data/chap01.tex
 第1章
+LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 4.
 LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 (Font)              scaled to size 8.0pt on input line 8.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
@@ -2597,110 +2559,65 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 
 ] (./data/appendix01.tex
 附录 A
-\c@currmpdefctr=\count395
-\c@endmpdefctr=\count396
-\c@mpdef=\count397
-Package hyperref Info: bookmark level for unknown mpdef defaults to 0 on input 
-line 36.
-\c@currmpdefopctr=\count398
-\c@endmpdefopctr=\count399
-Package hyperref Info: bookmark level for unknown mpdefop defaults to 0 on inpu
-t line 48.
 [24
 
 
 ]
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 11.04124pt on input line 99.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 8.06006pt on input line 99.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/b/n' will be
-(Font)              scaled to size 6.07271pt on input line 99.
+File: figures/trans-cu-demo.png Graphic file (type bmp)
+<figures/trans-cu-demo.png>
+ [25]
 
-Overfull \hbox (9.60687pt too wide) in paragraph at lines 99--111
- [][] 
+LaTeX Warning: Reference `trans-algorithm' on page 26 undefined on input line 9
+2.
+
+[26]
+File: figures/trans-algorithm.png Graphic file (type bmp)
+<figures/trans-algorithm.png>
+
+Underfull \hbox (badness 1735) in paragraph at lines 105--109
+\OML/ntxmi/m/it/12.045 B[]\LMS/ntxsy/m/n/12.045 º^^9d\OML/ntxmi/m/it/12.045 B[]
+X\OT1/ntxtlf/m/n/12.045 100\LMS/ntxsy/m/n/12.045 ¼$ \TU/SimSun(0)/m/n/12.045 和 
+$\U/ntxmia/m/it/12.045 ^^A\OML/ntxmi/m/it/12.045 PSNR\LMS/ntxsy/m/n/12.045 ¹\OM
+L/ntxmi/m/it/12.045 P[] \LMS/ntxsy/m/n/12.045 ^^@ \OML/ntxmi/m/it/12.045 P[]\LM
+S/ntxsy/m/n/12.045 º$ \TU/SimSun(0)/m/n/12.045 来 衡 量，|  并 且 时 间 的 减 少 以
  []
 
-[25]
-File: figures/thu-lib-logo.pdf Graphic file (type pdf)
-<use figures/thu-lib-logo.pdf>
- [26]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/sl' will be
-(Font)              scaled to size 12.045pt on input line 169.
- [27]
+File: figures/trans-cfg.png Graphic file (type bmp)
+<figures/trans-cfg.png>
+[27]
+File: figures/trans-result.png Graphic file (type bmp)
+<figures/trans-result.png>
+ [28] [29]
 附录 B
+[30
 
-Overfull \hbox (9.60687pt too wide) in paragraph at lines 208--220
- [][] 
- []
-
-[28
-
-]
-File: figures/thu-whole-logo.pdf Graphic file (type pdf)
-<use figures/thu-whole-logo.pdf>
- [29] [30]
-附录 C
-) [31
-
-]
-\openout2 = `data/resume.aux'.
-
- (./data/resume.tex
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.05249pt on input line 3.
- [32
-
-
-
-]) [33]
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf>
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf>
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 1>
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 1>
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 1>
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 1>
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 1>
- [34
-
-]
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 2>
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 2>
-File: figures/scan-record.pdf Graphic file (type pdf)
-<use figures/scan-record.pdf, page 2>
- [35]
+])
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
+ [31]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
- (./main.aux (./data/chap01.aux)
-(./data/chap02.aux) (./data/ack.aux) (./data/resume.aux))
+ (./main.aux (./data/chap01.aux) (./data/chap02.aux) (./data/ack.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 77.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: FC751295B1C6A1E2CF373E8769A4B2E1.
+(rerunfilecheck)             Checksum: 9FE460DC2CF9516D65C22603169688E8.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: There were undefined references.
+
  ) 
 Here is how much of TeX's memory you used:
- 33116 strings out of 492970
- 662382 string characters out of 6139398
- 720815 words of memory out of 5000000
- 36577 multiletter control sequences out of 15000+600000
- 698515 words of font info for 272 fonts, out of 8000000 for 9000
+ 33061 strings out of 492970
+ 662890 string characters out of 6139398
+ 718011 words of memory out of 5000000
+ 36525 multiletter control sequences out of 15000+600000
+ 683387 words of font info for 250 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,23n,96p,2527b,712s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (43 pages).
+Output written on main.pdf (38 pages).

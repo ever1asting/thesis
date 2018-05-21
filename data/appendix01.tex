@@ -1,262 +1,202 @@
-\chapter{外文资料原文}
-\label{cha:engorg}
+\chapter{书面翻译1}
 
-\title{The title of the English paper}
+\title{基于编码树剪枝的HEVC快速编码单元推断方法}
 
-\textbf{Abstract:} As one of the most widely used techniques in operations
-research, \emph{ mathematical programming} is defined as a means of maximizing a
-quantity known as \emph{bjective function}, subject to a set of constraints
-represented by equations and inequalities. Some known subtopics of mathematical
-programming are linear programming, nonlinear programming, multiobjective
-programming, goal programming, dynamic programming, and multilevel
-programming$^{[1]}$.
+{\heiti 摘要：} 本文为HEVC提出了一种快速决定编码单元划分的方法，这是一种通过基于树剪枝的
+策略，来更早推断出编码单元的尺寸的方法。在HEVC中，最为有效的是可变的编码单元尺寸，这是一个
+全新的概念。在推断最佳的编码单元尺寸的过程中，作为参考的HEVC编码器会逐个测试每种可能的编码
+单元尺寸，以便估测每种情况下，由编码单元尺寸所决定的编码器的表现。在整个编码过程中，这是
+主要的计算复杂度来源，因此，为了实现一个高效快速的编码器，这一过程应是攻坚的重点。一种简单的
+树剪枝算法是，若当前节点的编码模式已经足够好，那么其子节点的计算均可以被跳过（例如SKIP模式）。
+实验结果显示，本文所提出的方法，相较于测试模型3.0下的HEVC编码器，最多有可能达到40 \% 的
+时间缩减，而其代价仅仅是一点可以忽略不计的编码效果上的损失。在第六次JCT-VC会议上，本文所提出
+的方法被HEVC编码器测试模型4.0所采用。
 
-It is impossible to cover in a single chapter every concept of mathematical
-programming. This chapter introduces only the basic concepts and techniques of
-mathematical programming such that readers gain an understanding of them
-throughout the book$^{[2,3]}$.
+{\heiti 关键词：} HEVC；编码单元早推断；快速高效视频编码；视频编码。
 
+\section{引言}
 
-\section{Single-Objective Programming}
-The general form of single-objective programming (SOP) is written
-as follows,
-\begin{equation}\tag*{(123)} % 如果附录中的公式不想让它出现在公式索引中，那就请
-                             % 用 \tag*{xxxx}
-\left\{\begin{array}{l}
-\max \,\,f(x)\\[0.1 cm]
-\mbox{subject to:} \\ [0.1 cm]
-\qquad g_j(x)\le 0,\quad j=1,2,\cdots,p
-\end{array}\right.
-\end{equation}
-which maximizes a real-valued function $f$ of
-$x=(x_1,x_2,\cdots,x_n)$ subject to a set of constraints.
+2010年，ISO/IEC旗下的组织MEPG和ITU-T旗下的VCEG拟定了一份新的视频编码标准，该标准被称为HEVC。
+这份新标准被期望能够满足人们对于视频日益增长的需求，包括压缩效率、视频分辨率、帧率、计算复杂度
+等诸多方面。尽管HEVC标准尚处于发展阶段，迄今为止，其压缩效率已经达到了前一标准（MPEG-4 AVC/H.264）
+的二倍之高。
 
-\newtheorem{mpdef}{Definition}[chapter]
-\begin{mpdef}
-In SOP, we call $x$ a decision vector, and
-$x_1,x_2,\cdots,x_n$ decision variables. The function
-$f$ is called the objective function. The set
-\begin{equation}\tag*{(456)} % 这里同理，其它不再一一指定。
-S=\left\{x\in\Re^n\bigm|g_j(x)\le 0,\,j=1,2,\cdots,p\right\}
-\end{equation}
-is called the feasible set. An element $x$ in $S$ is called a
-feasible solution.
-\end{mpdef}
+虽然HEVC遵循传统的编码结构，包括基于块的运动补偿和变换编码，但实质性改进来自于基于四叉树结构的
+新的分层编码概念。在HEVC中，视频编码和解码过程由以下三个单元组成：编码单元（CU），用于作为变换四叉树
+的根，以及用于帧间/跳过/帧内预测；预测单元（PU），用于决定模式，包括运动估计和率失真优化；变换
+单元（TU），用于变换编码和熵编码。在三种编码单元中，CU对于提升压缩效率是至关重要、最为关键的，
+因为它决定了初始编码块的大小，而初始编码块的大小对其他处理单元（例如，PU和TU）的性能影响很大。
 
-\newtheorem{mpdefop}[mpdef]{Definition}
-\begin{mpdefop}
-A feasible solution $x^*$ is called the optimal
-solution of SOP if and only if
-\begin{equation}
-f(x^*)\ge f(x)
-\end{equation}
-for any feasible solution $x$.
-\end{mpdefop}
+当使用CU、PU和TU三种编码单元时，提升压缩效率是可能的，但同时，这也会显着地增加计算的复杂度。通常，
+在编码过程中会生成一个四叉树，其中根节点表示最大的CU大小，并且具有对应于下一个CU大小的四个子节点。
+这棵树被称为编码树，且其最大深度为4。编码单元与编码树（例如，当根节点的CU大小为64 x 64且树的深度
+设定为4的时候，CU0大小为64 x 64，CU1为32 x 32，...，CU3为8 x 8。）被包含在CU尺寸优化的计算与选择中，
+这一点导致了CU数量的指数增长（例如，1 x CU0 + 4 x CU1 + 16 x CU2 + 64 x CU3），这一点被直观
+地展示在 \ref {fig:trans-cu-demo} 中。由于每一个CU都对应着一个相应的PU和TU的计算，因此，日益
+增长的计算复杂对给实时编码器的设计带来了了严峻的挑战。HEVC参考编码器（即，3.0版）大约比MPEG-4 
+AVC/H.264参考编码器（即，JM 17.0 高配置版本）慢三倍。为了克服HEVC编码器在计算上的复杂性，我们
+提出了基于CU早终止的树剪枝策略，并在JCT-VC第六会议上介绍了该方法。
 
-One of the outstanding contributions to mathematical programming was known as
-the Kuhn-Tucker conditions\ref{eq:ktc}. In order to introduce them, let us give
-some definitions. An inequality constraint $g_j(x)\le 0$ is said to be active at
-a point $x^*$ if $g_j(x^*)=0$. A point $x^*$ satisfying $g_j(x^*)\le 0$ is said
-to be regular if the gradient vectors $\nabla g_j(x)$ of all active constraints
-are linearly independent.
-
-Let $x^*$ be a regular point of the constraints of SOP and assume that all the
-functions $f(x)$ and $g_j(x),j=1,2,\cdots,p$ are differentiable. If $x^*$ is a
-local optimal solution, then there exist Lagrange multipliers
-$\lambda_j,j=1,2,\cdots,p$ such that the following Kuhn-Tucker conditions hold,
-\begin{equation}
-\label{eq:ktc}
-\left\{\begin{array}{l}
-    \nabla f(x^*)-\sum\limits_{j=1}^p\lambda_j\nabla g_j(x^*)=0\\[0.3cm]
-    \lambda_jg_j(x^*)=0,\quad j=1,2,\cdots,p\\[0.2cm]
-    \lambda_j\ge 0,\quad j=1,2,\cdots,p.
-\end{array}\right.
-\end{equation}
-If all the functions $f(x)$ and $g_j(x),j=1,2,\cdots,p$ are convex and
-differentiable, and the point $x^*$ satisfies the Kuhn-Tucker conditions
-(\ref{eq:ktc}), then it has been proved that the point $x^*$ is a global optimal
-solution of SOP.
-
-\subsection{Linear Programming}
-\label{sec:lp}
-
-If the functions $f(x),g_j(x),j=1,2,\cdots,p$ are all linear, then SOP is called
-a {\em linear programming}.
-
-The feasible set of linear is always convex. A point $x$ is called an extreme
-point of convex set $S$ if $x\in S$ and $x$ cannot be expressed as a convex
-combination of two points in $S$. It has been shown that the optimal solution to
-linear programming corresponds to an extreme point of its feasible set provided
-that the feasible set $S$ is bounded. This fact is the basis of the {\em simplex
-  algorithm} which was developed by Dantzig as a very efficient method for
-solving linear programming.
-\begin{table}[ht]
-\centering
+\begin{figure}[H] % use float package if you want it here
   \centering
-  \caption*{Table~1\hskip1em This is an example for manually numbered table, which
-    would not appear in the list of tables}
-  \label{tab:badtabular2}
-  \begin{tabular}[c]{|m{1.5cm}|c|c|c|c|c|c|}\hline
-    \multicolumn{2}{|c|}{Network Topology} & \# of nodes &
-    \multicolumn{3}{c|}{\# of clients} & Server \\\hline
-    GT-ITM & Waxman Transit-Stub & 600 &
-    \multirow{2}{2em}{2\%}&
-    \multirow{2}{2em}{10\%}&
-    \multirow{2}{2em}{50\%}&
-    \multirow{2}{1.2in}{Max. Connectivity}\\\cline{1-3}
-    \multicolumn{2}{|c|}{Inet-2.1} & 6000 & & & &\\\hline
-    \multirow{2}{1.5cm}{Xue} & Rui  & Ni &\multicolumn{4}{c|}{\multirow{2}*{\thuthesis}}\\\cline{2-3}
-    & \multicolumn{2}{c|}{ABCDEF} &\multicolumn{4}{c|}{} \\\hline
-\end{tabular}
-\end{table}
-
-Roughly speaking, the simplex algorithm examines only the extreme points of the
-feasible set, rather than all feasible points. At first, the simplex algorithm
-selects an extreme point as the initial point. The successive extreme point is
-selected so as to improve the objective function value. The procedure is
-repeated until no improvement in objective function value can be made. The last
-extreme point is the optimal solution.
-
-\subsection{Nonlinear Programming}
-
-If at least one of the functions $f(x),g_j(x),j=1,2,\cdots,p$ is nonlinear, then
-SOP is called a {\em nonlinear programming}.
-
-A large number of classical optimization methods have been developed to treat
-special-structural nonlinear programming based on the mathematical theory
-concerned with analyzing the structure of problems.
-\begin{figure}[h]
-  \centering
-  \includegraphics{thu-lib-logo}
-  \caption*{Figure~1\quad This is an example for manually numbered figure,
-    which would not appear in the list of figures}
-  \label{tab:badfigure2}
+  \includegraphics[width = \textwidth]{trans-cu-demo}
+  \caption{根节点CU为64 x 64、深度为4的编码树结构示意图}
+  \label{fig:trans-cu-demo}
 \end{figure}
 
-Now we consider a nonlinear programming which is confronted solely with
-maximizing a real-valued function with domain $\Re^n$.  Whether derivatives are
-available or not, the usual strategy is first to select a point in $\Re^n$ which
-is thought to be the most likely place where the maximum exists. If there is no
-information available on which to base such a selection, a point is chosen at
-random. From this first point an attempt is made to construct a sequence of
-points, each of which yields an improved objective function value over its
-predecessor. The next point to be added to the sequence is chosen by analyzing
-the behavior of the function at the previous points. This construction continues
-until some termination criterion is met. Methods based upon this strategy are
-called {\em ascent methods}, which can be classified as {\em direct methods},
-{\em gradient methods}, and {\em Hessian methods} according to the information
-about the behavior of objective function $f$. Direct methods require only that
-the function can be evaluated at each point. Gradient methods require the
-evaluation of first derivatives of $f$. Hessian methods require the evaluation
-of second derivatives. In fact, there is no superior method for all
-problems. The efficiency of a method is very much dependent upon the objective
-function.
 
-\subsection{Integer Programming}
+\section{基于树剪枝的快速编码单元推断}
 
-{\em Integer programming} is a special mathematical programming in which all of
-the variables are assumed to be only integer values. When there are not only
-integer variables but also conventional continuous variables, we call it {\em
-  mixed integer programming}. If all the variables are assumed either 0 or 1,
-then the problem is termed a {\em zero-one programming}. Although integer
-programming can be solved by an {\em exhaustive enumeration} theoretically, it
-is impractical to solve realistically sized integer programming problems. The
-most successful algorithm so far found to solve integer programming is called
-the {\em branch-and-bound enumeration} developed by Balas (1965) and Dakin
-(1965). The other technique to integer programming is the {\em cutting plane
-  method} developed by Gomory (1959).
+基于可变CU大小的编码树推断过程计算复杂度可以描述如下：
 
-\hfill\textit{Uncertain Programming\/}\quad(\textsl{BaoDing Liu, 2006.2})
-
-\section*{References}
-\noindent{\itshape NOTE: These references are only for demonstration. They are
-  not real citations in the original text.}
-
-\begin{translationbib}
-\item Donald E. Knuth. The \TeX book. Addison-Wesley, 1984. ISBN: 0-201-13448-9
-\item Paul W. Abrahams, Karl Berry and Kathryn A. Hargreaves. \TeX\ for the
-  Impatient. Addison-Wesley, 1990. ISBN: 0-201-51375-7
-\item David Salomon. The advanced \TeX book.  New York : Springer, 1995. ISBN:0-387-94556-3
-\end{translationbib}
-
-\chapter{外文资料的调研阅读报告或书面翻译}
-
-\title{英文资料的中文标题}
-
-{\heiti 摘要：} 本章为外文资料翻译内容。如果有摘要可以直接写上来，这部分好像没有
-明确的规定。
-
-\section{单目标规划}
-北冥有鱼，其名为鲲。鲲之大，不知其几千里也。化而为鸟，其名为鹏。鹏之背，不知其几
-千里也。怒而飞，其翼若垂天之云。是鸟也，海运则将徙于南冥。南冥者，天池也。
-\begin{equation}\tag*{(123)}
- p(y|\mathbf{x}) = \frac{p(\mathbf{x},y)}{p(\mathbf{x})}=
-\frac{p(\mathbf{x}|y)p(y)}{p(\mathbf{x})}
+\begin{equation}
+\label{eq-cu-complexity}
+\left\{\begin{array}{l}
+f(n) = f(n - 1) + 4^n * M_n, f(0) = M_0 \;\; and \\
+M_i = {(\frac14)}^i * M_{i - 1}
+\end{array}\right.
 \end{equation}
 
-吾生也有涯，而知也无涯。以有涯随无涯，殆已！已而为知者，殆而已矣！为善无近名，为
-恶无近刑，缘督以为经，可以保身，可以全生，可以养亲，可以尽年。
+这里，$f(n)$ 是当编码树的最大深度被设定为 $n$ 时所需操作的总数，而 $M_i$ 则是
+对于第 $i$ 层给定的CU大小所需的操作总数。在 \ref{eq-cu-complexity} 中，我们假定 $M_i$ 是
+$M_{i-1}$ 的四分之一是因为CU的大小比起前一层会减少四分之一。总的操作数可以被整合为如下的
+公式：
 
-\subsection{线性规划}
-庖丁为文惠君解牛，手之所触，肩之所倚，足之所履，膝之所倚，砉然响然，奏刀騞然，莫
-不中音，合于桑林之舞，乃中经首之会。
-\begin{table}[ht]
-\centering
+\begin{equation}
+\label{eq-cu-complexity-comb}
+f(n) = \sum_{i=0}^n 4^i * M_i \cong \mathcal{O} (M_0 * n)
+\end{equation}
+
+如 \ref{eq-cu-complexity-comb} 所展示，计算的复杂度随着CU深度的增加单调增加。当考虑到 $M_i$
+代表着包括对每个CU大小的运动估计在内的整个编码过程这一事实，最大CU深度就自然成为了决定编码时间
+的主要因素。
+
+本文研究了一种通过更早地确定CU的深度来加速CU深度推断的策略。我们利用了这样一个事实，当当前CU节点
+的代价低于该节点子节点的代价时，我们就不必再对子树进行进一步的处理（例如，$RDCost(CU_t) < \sum_{i=0}^3 RDCost(CU^i_{t-1})$）。
+这一方法的唯一问题是，子树的代价必须是已知的，这一要求妨碍了子树计算复杂度的减少程度。我们可以避免
+子树代价的计算，如果当前节点的代价已经是最小的了（例如，SKIP模式），而这正是本方法的核心概念。
+为了进一步减少计算复杂度，我们可以定义剪枝的条件如下：
+
+\begin{equation}
+\label{eq-pruning-condition}
+\begin{split}
+Pruning & \; codition: \\
+(\mathop{m'} & =  \mathop{argmin}\limits_{m \in Mode} RDCost(CU_t | PU=m)) \le Threshold \\
+Mode & = \{ SKIP, Inter2Nx2N, Inter2NxN, InterNx2N, InterNxN \} 
+\end{split}
+\end{equation}
+
+这里，Mode表示按根据复杂度确定的预测模式的有序集合，而 $\mathop{m'}$ 则是为当前CU深度选择的
+预测模式，且Threshold将根据Mode选择。在 \ref{eq-pruning-condition} 中，通过从SKIP到InterNxN，不断
+改变Threshold的值，剪枝过程的可能性将被推断。若Threshold被设置为SKIP时，剪枝过程将不会对压缩效率产生
+影响；否则，以降低压缩效率为代价，更多的子树将被剪去。根据上述分析，我们提出了 \ref{trans-algorithm} 
+所示的剪枝过程。
+
+
+\begin{figure}[H] % use float package if you want it here
   \centering
-  \caption*{表~1\hskip1em 这是手动编号但不出现在索引中的一个表格例子}
-  \label{tab:badtabular3}
-  \begin{tabular}[c]{|m{1.5cm}|c|c|c|c|c|c|}\hline
-    \multicolumn{2}{|c|}{Network Topology} & \# of nodes &
-    \multicolumn{3}{c|}{\# of clients} & Server \\\hline
-    GT-ITM & Waxman Transit-Stub & 600 &
-    \multirow{2}{2em}{2\%}&
-    \multirow{2}{2em}{10\%}&
-    \multirow{2}{2em}{50\%}&
-    \multirow{2}{1.2in}{Max. Connectivity}\\\cline{1-3}
-    \multicolumn{2}{|c|}{Inet-2.1} & 6000 & & & &\\\hline
-    \multirow{2}{1.5cm}{Xue} & Rui  & Ni &\multicolumn{4}{c|}{\multirow{2}*{\thuthesis}}\\\cline{2-3}
-    & \multicolumn{2}{c|}{ABCDEF} &\multicolumn{4}{c|}{} \\\hline
-\end{tabular}
-\end{table}
-
-文惠君曰：“嘻，善哉！技盖至此乎？”庖丁释刀对曰：“臣之所好者道也，进乎技矣。始臣之
-解牛之时，所见无非全牛者；三年之后，未尝见全牛也；方今之时，臣以神遇而不以目视，
-官知止而神欲行。依乎天理，批大郤，导大窾，因其固然。技经肯綮之未尝，而况大坬乎！
-良庖岁更刀，割也；族庖月更刀，折也；今臣之刀十九年矣，所解数千牛矣，而刀刃若新发
-于硎。彼节者有间而刀刃者无厚，以无厚入有间，恢恢乎其于游刃必有余地矣。是以十九年
-而刀刃若新发于硎。虽然，每至于族，吾见其难为，怵然为戒，视为止，行为迟，动刀甚微，
-謋然已解，如土委地。提刀而立，为之而四顾，为之踌躇满志，善刀而藏之。”
-
-文惠君曰：“善哉！吾闻庖丁之言，得养生焉。”
-
-
-\subsection{非线性规划}
-孔子与柳下季为友，柳下季之弟名曰盗跖。盗跖从卒九千人，横行天下，侵暴诸侯。穴室枢
-户，驱人牛马，取人妇女。贪得忘亲，不顾父母兄弟，不祭先祖。所过之邑，大国守城，小
-国入保，万民苦之。孔子谓柳下季曰：“夫为人父者，必能诏其子；为人兄者，必能教其弟。
-若父不能诏其子，兄不能教其弟，则无贵父子兄弟之亲矣。今先生，世之才士也，弟为盗
-跖，为天下害，而弗能教也，丘窃为先生羞之。丘请为先生往说之。”
-\begin{figure}[h]
-  \centering
-  \includegraphics{thu-whole-logo}
-  \caption*{图~1\hskip1em 这是手动编号但不出现索引中的图片的例子}
-  \label{tab:badfigure3}
+  \includegraphics[width = 0.6\textwidth]{trans-algorithm}
+  \caption{基于树剪枝的CU推断方法的步骤}
+  \label{fig:trans-algorithm}
 \end{figure}
 
-柳下季曰：“先生言为人父者必能诏其子，为人兄者必能教其弟，若子不听父之诏，弟不受
-兄之教，虽今先生之辩，将奈之何哉？且跖之为人也，心如涌泉，意如飘风，强足以距敌，
-辩足以饰非。顺其心则喜，逆其心则怒，易辱人以言。先生必无往。”
+\section{实验结果}
 
-孔子不听，颜回为驭，子贡为右，往见盗跖。
+为了进行性能评测，我们测试了了我们的方法与HM 3.0两种方法的总执行时间，以确认计算复杂度的降低
+程度。编码的表现以 $\Delta Bitrate[ (B_{PRO} - B_{REF})/B_{REF} X 100 ]$ 和 
+$ \Delta PSNR(P_{PRO} - P_{REF})$ 来衡量，并且时间的减少以 $ \Delta Time[ (T_{PRO} - T_{REF})/T_{REF} X 100 ]$
+来衡量。在实验中，我们吧Threshold值设置为SKIP模式。有关编码环境的更多细节在 \ref{fig:trans-cfg} 被展示。
 
-\subsection{整数规划}
-盗跖乃方休卒徒大山之阳，脍人肝而餔之。孔子下车而前，见谒者曰：“鲁人孔丘，闻将军
-高义，敬再拜谒者。”谒者入通。盗跖闻之大怒，目如明星，发上指冠，曰：“此夫鲁国之
-巧伪人孔丘非邪？为我告之：尔作言造语，妄称文、武，冠枝木之冠，带死牛之胁，多辞缪
-说，不耕而食，不织而衣，摇唇鼓舌，擅生是非，以迷天下之主，使天下学士不反其本，妄
-作孝弟，而侥幸于封侯富贵者也。子之罪大极重，疾走归！不然，我将以子肝益昼餔之膳。”
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.6\textwidth]{trans-cfg}
+  \caption{测试环境与软件参考配置}
+  \label{fig:trans-cfg}
+\end{figure}
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = \textwidth]{trans-result}
+  \caption{文中所提出的算法与HM3.0在编码时间上的对比：(a)低延迟方案；(b)随机访问方案}
+  \label{fig:trans-result}
+\end{figure}
+
+\ref{fig:trans-result} 展示了在低延迟方案与随机访问方案两种环境下，我们评测了我们的方法与
+HM 3.0两种方法的总执行时间。尽管我们测试了每一种 \ref{fig:trans-cfg} 中所列举的不同的量化参数下的结果，
+但 \ref{fig:trans-result} 中，我们只展示每一类的平均结果。 \ref{fig:trans-result} 显示了我们的
+方法相较于HM 3.0,，在低延迟方案的环境下减少了63.34\%的时间，而在随机访问方案的环境下，则减少了
+59.43 \%的时间。以图像质量的轻微退化为代价所获得的编码增益，是所提出的方法的自然结果，因为编码树修剪过程
+会使图像质量上的比特减少。通过调整Threshold的值，我们可以节约更多的编码时间，但其代价是图片质量
+的进一步下降。目前，我们所提出的方法，在模式设置为SKIP时，能得到编码时间与图片质量相平衡的最好结果。
 
 
-\chapter{其它附录}
-前面两个附录主要是给本科生做例子。其它附录的内容可以放到这里，当然如果你愿意，可
-以把这部分也放到独立的文件中，然后将其 \cs{input} 到主文件中。
+\section{结论}
+
+在本文中，我们为HEVC提出了一种快速的CU决策方法，这种方法基于编码树修剪从而更早确定CU的大小，与HM 3.0
+编码器相比，仅以可以忽略不计的BD-比特率损失为代价，就可以使编码时间减少约40 \%。实验结果表明，当你想设计
+一个快速的HEVC编码器时，我们所提出的编码树剪枝方法应当被考虑。在JCT-VC第六次会议上，HEVC测试模型4.0
+编码器采用了我们所提出的方法。
+
+
+\chapter{书面翻译2}
+
+\title{一种有效的H.264上的可变块大小早终止算法}
+
+{\heiti 摘要：} H.264视频编码标准比以前的标准提供了更高的编码效率，但同时，其复杂度也显著提高。
+在H.264编码器中，最耗时的组成部分是可变块大小的运动估计。为了降低运动估计的复杂度，本文提出了一种
+早终止算法。它通过检查仅仅一个搜索点来预测最佳的运动矢量。使用该方法，一些运动搜索可以被提前停止，
+由此，大量的搜索点可以被跳过。本文所提出的方法适用于任何快速运动估计算法。实验采用的是H.264所采用的
+一种快速运动估计算法。结果表明，本算法显著降低了复杂度，而代价仅仅是可以忽略不计的视频质量的降低。
+
+{\heiti 关键词：} 早终止；H.264；运动估计；可变块大小。
+
+\section{引言}
+
+近年来，视频编码技术高速发展。理所当然地，压缩性能的提升伴随着计算代价的增长。作为ITU-T的VCEG和
+ISO/IEC的MPEG所最新制定标准的H.264，相较于之前的H.261、H.263、MPEG-1/2/4等标准，在编码效率上有着
+巨幅的提升。然而，其过高的计算复杂度使其无法被广泛应用到实时业务中。
+
+通常来说，一个视频编码器最为耗时的部分是运动估计。减少其计算代价的方法有两种。第一种是加速算法本身，
+对ME过程来说，数种快速算法被提出，例如六边形搜索（HBS）、增强型预测分区搜索（EPZS）和混合非对称
+交叉多六边形网格搜索（UMHexagonS）等。另一种方法就是更早地终止ME的计算。通过预测那些DCT系数会被量化
+为0的块，一些方法有效地减少了ME的计算量。另一方面，一些块的重要部分在ME之后具有零运动矢量（MV）。
+据此，有算法提出的零运动检测算法（ZMD），通过将它们的差值的绝对值求和，并与预先定义的阈值进行比较来检测这样的块，
+然后跳过其余的搜索点。
+
+然而，上述早终止方法都是针对以前的编码方案（如H.263）而开发的。它们不能再应用于H.264。这是因为相比于仅有
+两中块大小（16x16和8x8）的H.263，H.264拥有从16x16到4x4变化的七种块大小。
+
+通过扩展ZMD的概念，我们提出了一种用于H.264视频编码的可变块大小最佳运动检测（VBBMD）算法。
+该方法在三个方面与ZMD不同：
+
+\begin{enumerate}
+  \item 基于不同块大小的检测精度，分别获得VBBMD中使用的阈值，同时考虑了复杂度的降低，使得阈值的决策更加合理；
+  \item 在VBBMD中，除零运动点外，预测的移动到的点也会被检查，从而更多的搜索点可以被跳过；
+  \item 对于16x16的块，VBBMD使用双阈值。使用较低的阈值跳过较小的块的运动搜索。
+\end{enumerate}
+
+我们的方法可以适用于任何运动搜索算法，并且不需要额外的计算。注意，整个讨论集中于帧间帧（P帧）和
+整数像素运动搜索。文章的剩余部分如下进行组织。 \ref{sec:app2-early-termination} 介绍了早期终止算法
+及其改进。 \ref{sec:app2-sim-result} 中给出了仿真结果。最后，在 \ref{sec:app2-conclusion} ，
+我们总结了本文，并给出了未来的方向。
+
+\section{早终止算法}
+\label{sec:app2-early-termination}
+
+\subsection{可变块大小零运动推断}
+
+\subsection{可变块大小最佳运动推断}
+
+\section{模拟结果}
+\label{sec:app2-sim-result}
+
+
+\section{结论}
+\label{sec:app2-conclusion}
+
+
+本文提出了一种H.264视频编码的早终止方法VBBMD，该方法通过进一步减少计算总量来帮助现有的快速运动搜索
+算法。该方法通过检查一个搜索点来预测最佳的MV。通过这种方法，一些运动搜索可以被提前停止，因此与这些
+搜索相关联的计算可以被减少。在该方法中，考虑了复杂度的降低的同时，阈值通过基于不同块大小的检测精度来确定，
+这使得阈值决策更加合理。实验结果表明，我们提出的方法实现了显著的复杂度降低，而视频质量的退化是可以忽略不计的。
+未来的方向可能包括使阈值根据量化级别和运动级别自适应调整，并将早终止方法应用于子像素的运动估计。
