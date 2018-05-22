@@ -185,15 +185,167 @@ ISO/IEC的MPEG所最新制定标准的H.264，相较于之前的H.261、H.263、
 
 \subsection{可变块大小零运动推断}
 
+通常来说，对大多数序列，在ME后相当数量的块会有这零运动矢量，正如 \ref{fig:trans2-zmb} 展示的一样。
+
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.6\textwidth]{trans2-zmb}
+  \caption{当量化参数为32时，七种模式下零运动块的比例}
+  \label{fig:trans2-zmb}
+\end{figure}
+
+表中，模式1-7代表从16x16到4x4的七种帧间预测模式，如 \ref{fig:trans2-7-predict-mode} 所展示。
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.6\textwidth]{trans2-7-predict-mode}
+  \caption{H.264中的七种预测模式}
+  \label{fig:trans2-7-predict-mode}
+\end{figure}
+
+可以看出，不论是运动较为活跃亦或是不太活跃的视频序列，有30.71 \%到98.03\%的块存在零运动。
+如果我们可以预测零运动块（ZMB），我们可以提前停止ME的计算，从而消除计算的一部分。通过扩展ZMD的概念，
+我们开发了一个可变块大小的ZMD（VBZMD）算法。
+
+在以前的ZMD方法中，当块的SAD小于给定阈值时，块可以被看作是ZMB。在H.264中选择最佳匹配块时，使用代价函数$J$
+而不是SAD作为预测误差的度量。
+
+\begin{equation}
+\label{eq2-cost}
+J(m, \lambda) = SAD (s, c(m)) + \lambda R(m - p)
+\end{equation}
+
+这里，$m = (m_x, m_y)^T$ 是当前的MV，$p = (p_x, p_y)^T$ 是预测的MV，而 $ \lambda $则是拉格朗日乘数，
+$ R(m - p) $ 是编码MV所用的比特数。
+
+如果一个块是零运动的，那么$MV(0, 0)$ 处极有可能有一个很小的代价值。因此，我们为七种模式分别定义阈值 
+$THZ_i(i=1,...,7)$。在整个运动估计过程中，$MV(0, 0)$ 首先被检查。如果$MV(0, 0)$ 处的代价满足 \ref{eq2-thz-condition} ，
+我们就认为这个块是一个ZMB，由此剩余的搜索过程既可以被停止。
+
+\begin{equation}
+\label{eq2-thz-condition}
+J_i < THZ_i, \; for \; i = 1,...,7.
+\end{equation}
+
+H.264中ZMD的关键是如何去决定不同块大小下的阈值。很明显，阈值越大，检测到的ZMB越多，更多的搜索点就可以被跳过。
+然而同时，更多的块被错误地选择，这会导致更大的图像质量损失。因此，在性能和复杂性之间存在一个平衡。在实践中，防止
+视频质量的损失可能比复杂度的轻微增加更重要。
+
+因此，我们将检测精度作为确定阈值的指导。这里，精度表示当代价小于阈值时，块为ZMB的概率。我们的方法是，在实验中基于
+不同的准确率获得多个候选阈值集，并选择一个最优集合，在实践中，我们需要在质量和复杂度之间取一个较好的折衷。
+许多序列的实验表明，在相同的阈值下，低运动场景中的准确率和检测率都高于有较多运动的场景中的准确率和检测率。
+由于Foreman序列可以代表具有较大运动的场景，所以我们可以选择基于Fordman的阈值，并将它们应用到其他序列。 
+\ref{fig:trans2-ac-foreman} 显示了我们获得的候选阈值。
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.6\textwidth]{trans2-ac-foreman}
+  \caption{对于Foreman序列，不同准确率的备选阈值（QP=32）}
+  \label{fig:trans2-ac-foreman}
+\end{figure}
+
+在我们的方法中，如果块的零运动代价小于相应的阈值，则我们将其视为块的最佳MV并跳到同一宏块中的下一个块。如果当前块是宏块中的
+最后一个块，则跳转到下一个模式。在所有模式被检查之后，拥有最小成本的模式被选择，并应用于后续的任一为H.264设计的ME算法。
+在模式1中，由于一个宏块只包含一个块，如果零运动成本足够小，那么不仅可能是最好的MV，而且模式1也很可能是宏块的最佳模式。
+因此，我们为模式1定义了额外的低阈值THS。如果零运动代价小于THS，则整个宏块的运动搜索停止。VBZMD的整个过程概述如下：
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.6\textwidth]{trans2-vbzmd}
+  \caption{VBZMD整个过程}
+  \label{fig:trans2-vbzmd}
+\end{figure}
+
+我们所使用的H.264编码器是6.1e版本的JVT软件。我们将所提出的方法与H.264标准所采用的快速ME算法UMHexagonS相结合。 与完全搜索相比，
+快速ME方法可以将整数像素ME的复杂度降低90\%，而通过使用所提出的方法可以进一步减少计算。因为800的阈值对应于模式1中相对较高的78\%的
+准确率，并且它在实验中似乎工作得很好，所以我们选择它作为THS。正如 \ref{fig:trans2-vbzmd-performance} 所展示的，对于代表低运动场景的Akiyo序列，每个宏块（PPMB）的搜索点中，有高达93.47\%的部分被减去，而其代价仅为平均峰值信号（PSNR）降级不超过
+0.05分贝，且比特率的增加是微不足道的。即使对于具有较大的面部运动和摄像机平移的Foreman序列，计算量的节省也是相当明显的，且PSNR丢失依旧轻微。
+这里，搜索点的数目是在宏块级别上计算的。例如，模式4中，大小为8×8的块中的一个搜索点，等同于 $1/4$ PPMB。这里，对应于65\%的
+准确率的阈值集在性能和复杂度之间提供了良好的折衷。Akiyo和Foreman序列的PSNR退化分别为0.04和0.13，而计算量的节省分别为91.9\%和59.64\%。
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.6\textwidth]{trans2-vbzmd-performance}
+  \caption{参考阈值下VBZMD的表现}
+  \label{fig:trans2-vbzmd-performance}
+\end{figure}
+
+直观地，高精度相对应的PSNR应该大于与低精度相对应的PSNR。然而，在这个表中可以看出，Akiyo序列中，精度为75\%对应的的PSNR值
+和70\%对应的PSNR值，比精度80\%对应的PSNR高。这种情况是可能的，因为较大的阈值不仅减少了更多的计算，而且减少了编码MV所需的
+比特，然后节省的比特提高了总体PSNR。
+
 \subsection{可变块大小最佳运动推断}
+\label{sec:vbbmd}
+
+在减少计算量上，尽管VBZMD已经取得了相当好的表现，但我们仍可以将其改进以得到更好的表现。在H.264的中,当前块的左、上和右上
+（或上左）相邻块的MV将用作预测的当前块的MV等，如 \ref{fig:trans2-neighboring-block} 所说明。由于相邻块的MV通常是相关的，
+预测向量很可能正是在ME之后最好的MV。为方便描述，我们定义最佳MV为预测向量的块为预测向量块（PVB）。正如 \ref{fig:trans2-predict-vec-block} 所示，不同序列的PVB率序列是大于相应的、如 \ref{fig:trans2-zmb} 所示的 ZMB率得。特别是，对于运动较为激烈的场景，
+如Coastguard和Foreman序列，PVB率较ZMB率高23\%到122\%。另一方面，另一个实验显示，对大多数序列来说，PVB率较ZMB率
+高97\%。我们所观察到的现象启示我们，应当使用预测向量来预测最佳MV，而不是零MV。此外，在H.264中，进行编码和传输是
+当前MV和预测矢量之间的差异，而不是当前的MV本身。因此，使用预测向量来预测最佳MV可以节省用于编码MV的比特。
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.3\textwidth]{trans2-neighboring-block}
+  \caption{当前块与其相邻块}
+  \label{fig:trans2-neighboring-block}
+\end{figure}
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.6\textwidth]{trans2-predict-vec-block}
+  \caption{预测向量块比例}
+  \label{fig:trans2-predict-vec-block}
+\end{figure}
+
+基于前面的VBZMD，我们提出了一种VBBMD算法。关键思想是将预测向量的成本与给定阈值进行比较。如果成本小于阈值，则将
+预测向量视为最佳MV，然后可以跳过剩余的搜索点。
+
+同样，如何选择不同块大小情况下的阈值仍然是问题的关键。使用与VBZMD中相同的方法，我们可以在不同的准确率下获得多个
+候选阈值集。VBBMD的步骤与VBZMD几乎相同，唯一的区别在于，我们检查预测矢量而不是零MV。我们用候选阈值集编码不同的
+视频序列，并选择最佳集合。结果表明，阈值的集合（2500, 1500, 1400，920, 625, 570，500）在准确度为66\%时提供了
+一个很好的折衷。此外，模式1的低阈值THS也是800，因为它工作得很好。 \ref{fig:trans2-vbbmd} 展示出了具有最佳阈值集的VBBMD结果。
+与VBZMD在同一表中的结果相比，我们可以看到，更多的搜索点被进一步减少，而PSNR和比特率几乎一样。这验证了VBBMD比VBZMD更有效。
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.6\textwidth]{trans2-vbbmd}
+  \caption{最优阈值下，VBBMD的表现（QP=32）}
+  \label{fig:trans2-vbbmd}
+\end{figure}
+
+如前所述，阈值是在 $QP=32$ 的条件下确定的。然而实验表明，不同的$QP$值将得到不同的阈值。这是因为代价值$J$与$QP$
+有关。在 \ref{eq2-cost} 中，$J$的值与 $\lambda$直接相关，而 $\lambda$ 的值是从一个以 $QP$ 为索引的表中查询
+得到的。当一个块被视为PVB时，当前MV $\;m$ 与预测MV $\;p$ 相差最多为 $3/4$像素，这可以用10比特来编码。因此，我们
+近似地设置 $R(m-p)$ 为10。我们定义 $QP=32$ 条件下的阈值为标准阈值，对于其他的 $QP$ 取值，相应的阈值应设置为
+标准阈值加上 $ (\lambda_{QP} - \lambda_{32}) x 10$。
 
 \section{模拟结果}
 \label{sec:app2-sim-result}
 
+我们将VBBMD实现在了H.264参考编码器上，并使用UMHexagonS快速ME算法。我们设置运动搜多范围为32，并设置
+参考帧数为1。率失真优化被禁止并且CAVLC熵编码开启。
+
+为了验证所提出的方法在不同实验条件下的有效性，我们选择了六个序列，其运动活动从小到大变化。他们是Akiyo, 
+Salesman, News, Silent, Coastguard和Foreman序列。所有序列均为QCIF格式，并以30帧每秒编码。除第一帧
+以外的所有帧都被编码为P帧。此外，为了检查在不同比特率下的性能，在我们的实验中使用了三个QP值：28, 32, 36。
+如 \ref{sec:vbbmd} 所述，在VBBMD中使用的阈值根据QP进行调整。
+
+为便于比较，我们在 \ref{fig:trans2-result} 中显示了平均PSNR增益（$\Delta PSNR$）、PPMB平均降低率（$\Delta PPMB$）
+和比特率的增长率（$\Delta Bit-rate$）。从结果可以看出，所提出的方法是稳定的，并且在不同的条件下工作得很好。
+与仅使用快速ME算法相比，我们的方法进一步减少了76.10\%到94.12\%的整数像素搜索点，而PSNR衰减平均仅为0.06分贝，
+并且比特率只是略微增加。
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.6\textwidth]{trans2-result}
+  \caption{在不同条件下VBBMD的表现}
+  \label{fig:trans2-result}
+\end{figure}
 
 \section{结论}
 \label{sec:app2-conclusion}
-
 
 本文提出了一种H.264视频编码的早终止方法VBBMD，该方法通过进一步减少计算总量来帮助现有的快速运动搜索
 算法。该方法通过检查一个搜索点来预测最佳的MV。通过这种方法，一些运动搜索可以被提前停止，因此与这些

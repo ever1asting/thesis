@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  22 MAY 2018 00:23
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  22 MAY 2018 18:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2591,14 +2591,39 @@ File: figures/trans-result.png Graphic file (type bmp)
 附录 B
 [30
 
-])
+]
+File: figures/trans2-zmb.png Graphic file (type bmp)
+<figures/trans2-zmb.png>
+File: figures/trans2-7-predict-mode.png Graphic file (type bmp)
+<figures/trans2-7-predict-mode.png>
+ [31] [32]
+File: figures/trans2-ac-foreman.png Graphic file (type bmp)
+<figures/trans2-ac-foreman.png>
+File: figures/trans2-vbzmd.png Graphic file (type bmp)
+<figures/trans2-vbzmd.png>
+ [33]
+File: figures/trans2-vbzmd-performance.png Graphic file (type bmp)
+<figures/trans2-vbzmd-performance.png>
+ [34] [35]
+File: figures/trans2-neighboring-block.png Graphic file (type bmp)
+<figures/trans2-neighboring-block.png>
+File: figures/trans2-predict-vec-block.png Graphic file (type bmp)
+<figures/trans2-predict-vec-block.png>
+ [36]
+File: figures/trans2-vbbmd.png Graphic file (type bmp)
+<figures/trans2-vbbmd.png>
+ [37]
+File: figures/trans2-result.png Graphic file (type bmp)
+<figures/trans2-result.png>
+) [38]
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 77.
- [31]
+ [39]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 77.
- (./main.aux (./data/chap01.aux) (./data/chap02.aux) (./data/ack.aux))
+ (./main.aux
+(./data/chap01.aux) (./data/chap02.aux) (./data/ack.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 77.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 77.
 Package rerunfilecheck Info: File `main.out' has not changed.
@@ -2612,12 +2637,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 33061 strings out of 492970
- 662890 string characters out of 6139398
- 718011 words of memory out of 5000000
- 36525 multiletter control sequences out of 15000+600000
+ 33109 strings out of 492970
+ 664246 string characters out of 6139398
+ 718590 words of memory out of 5000000
+ 36564 multiletter control sequences out of 15000+600000
  683387 words of font info for 250 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,23n,96p,2527b,712s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (38 pages).
+Output written on main.pdf (46 pages).
