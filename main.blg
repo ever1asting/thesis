@@ -3,52 +3,74 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: main.aux
 A level-1 auxiliary file: data/chap01.aux
 A level-1 auxiliary file: data/chap02.aux
+A level-1 auxiliary file: data/chap03.aux
+A level-1 auxiliary file: data/chap04.aux
+A level-1 auxiliary file: data/chap05.aux
+A level-1 auxiliary file: data/origin.aux
 The style file: thuthesis-numeric.bst
 A level-1 auxiliary file: data/ack.aux
-A level-1 auxiliary file: data/resume.aux
 Database file #1: ref/refs.bib
+Warning--I didn't find a database entry for "tex"
+Warning--I didn't find a database entry for "companion"
+Warning--I didn't find a database entry for "ColdSources"
+Warning--I didn't find a database entry for "Krasnogor2004e"
+Warning--I didn't find a database entry for "clzs"
+Warning--I didn't find a database entry for "zjsw"
+Warning--I didn't find a database entry for "ELIDRISSI94"
+Warning--I didn't find a database entry for "MELLINGER96"
+Warning--I didn't find a database entry for "SHELL02"
+Warning--I didn't find a database entry for "zhubajie"
+Warning--I didn't find a database entry for "metamori2004"
+Warning--I didn't find a database entry for "shaheshang"
+Warning--I didn't find a database entry for "FistSystem01"
+Warning--I didn't find a database entry for "IEEE-1363"
+Warning--I didn't find a database entry for "DPMG"
+Warning--I didn't find a database entry for "kocher99"
+Warning--I didn't find a database entry for "NPB2"
+Warning--I didn't find a database entry for "chuban2001"
+Warning--I didn't find a database entry for "oclc2000"
+Warning--I didn't find a database entry for "cnarticle"
+Warning--I didn't find a database entry for "cnproceed"
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Warning--empty year in chuban2001
-Warning--empty year in oclc2000
-You've used 22 entries,
+You've used 6 entries,
             3363 wiz_defined-function locations,
-            910 strings with 8910 characters,
-and the built_in function-call counts, 95278 in all, are:
-= -- 9761
-> -- 9583
-< -- 9561
-+ -- 3107
-- -- 147
-* -- 604
-:= -- 10512
-add.period$ -- 65
-call.type$ -- 22
-change.case$ -- 45
-chr.to.int$ -- 2707
-cite$ -- 24
-duplicate$ -- 442
-empty$ -- 1232
-format.name$ -- 246
-if$ -- 27554
+            836 strings with 7213 characters,
+and the built_in function-call counts, 32852 in all, are:
+= -- 3414
+> -- 3334
+< -- 3314
++ -- 1079
+- -- 43
+* -- 196
+:= -- 3623
+add.period$ -- 19
+call.type$ -- 6
+change.case$ -- 12
+chr.to.int$ -- 959
+cite$ -- 6
+duplicate$ -- 124
+empty$ -- 361
+format.name$ -- 78
+if$ -- 9474
 int.to.chr$ -- 1
-int.to.str$ -- 23
+int.to.str$ -- 7
 missing$ -- 0
-newline$ -- 125
-num.names$ -- 69
-pop$ -- 3870
+newline$ -- 40
+num.names$ -- 18
+pop$ -- 1342
 preamble$ -- 1
-purify$ -- 22
+purify$ -- 6
 quote$ -- 0
-skip$ -- 11346
+skip$ -- 3964
 stack$ -- 0
-substring$ -- 3145
-swap$ -- 53
-text.length$ -- 176
+substring$ -- 1105
+swap$ -- 18
+text.length$ -- 53
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 268
-warning$ -- 2
-while$ -- 240
+type$ -- 84
+warning$ -- 0
+while$ -- 73
 width$ -- 0
-write$ -- 325
-(There were 2 warnings)
+write$ -- 98
+(There were 21 warnings)

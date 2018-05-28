@@ -1,4 +1,6 @@
-\chapter{书面翻译1}
+\chapter{书面翻译}
+
+\section{基于编码树剪枝的HEVC快速编码单元推断方法}
 
 \title{基于编码树剪枝的HEVC快速编码单元推断方法}
 
@@ -14,7 +16,7 @@
 
 {\heiti 关键词：} HEVC；编码单元早推断；快速高效视频编码；视频编码。
 
-\section{引言}
+\subsection{引言}
 
 2010年，ISO/IEC旗下的组织MEPG和ITU-T旗下的VCEG拟定了一份新的视频编码标准，该标准被称为HEVC。
 这份新标准被期望能够满足人们对于视频日益增长的需求，包括压缩效率、视频分辨率、帧率、计算复杂度
@@ -45,7 +47,7 @@ AVC/H.264参考编码器（即，JM 17.0 高配置版本）慢三倍。为了克
 \end{figure}
 
 
-\section{基于树剪枝的快速编码单元推断}
+\subsection{基于树剪枝的快速编码单元推断}
 
 基于可变CU大小的编码树推断过程计算复杂度可以描述如下：
 
@@ -100,7 +102,7 @@ Mode & = \{ SKIP, Inter2Nx2N, Inter2NxN, InterNx2N, InterNxN \}
   \label{fig:trans-algorithm}
 \end{figure}
 
-\section{实验结果}
+\subsection{实验结果}
 
 为了进行性能评测，我们测试了了我们的方法与HM 3.0两种方法的总执行时间，以确认计算复杂度的降低
 程度。编码的表现以 $\Delta Bitrate[ (B_{PRO} - B_{REF})/B_{REF} X 100 ]$ 和 
@@ -130,15 +132,23 @@ HM 3.0两种方法的总执行时间。尽管我们测试了每一种 \ref{fig:t
 的进一步下降。目前，我们所提出的方法，在模式设置为SKIP时，能得到编码时间与图片质量相平衡的最好结果。
 
 
-\section{结论}
+\subsection{结论}
 
 在本文中，我们为HEVC提出了一种快速的CU决策方法，这种方法基于编码树修剪从而更早确定CU的大小，与HM 3.0
 编码器相比，仅以可以忽略不计的BD-比特率损失为代价，就可以使编码时间减少约40 \%。实验结果表明，当你想设计
 一个快速的HEVC编码器时，我们所提出的编码树剪枝方法应当被考虑。在JCT-VC第六次会议上，HEVC测试模型4.0
 编码器采用了我们所提出的方法。
 
+\subsection*{References}
 
-\chapter{书面翻译2}
+\begin{translationbib}
+  \item Choi, Kiho, Sang-Hyo Park, and Euee S. Jang. "Coding tree pruning based CU early termination." 
+  JCTVC-F092, Torino, Italy (2011): 14-22.
+\end{translationbib}
+
+
+
+\section{一种有效的H.264上的可变块大小早终止算法}
 
 \title{一种有效的H.264上的可变块大小早终止算法}
 
@@ -150,7 +160,7 @@ HM 3.0两种方法的总执行时间。尽管我们测试了每一种 \ref{fig:t
 
 {\heiti 关键词：} 早终止；H.264；运动估计；可变块大小。
 
-\section{引言}
+\subsection{引言}
 
 近年来，视频编码技术高速发展。理所当然地，压缩性能的提升伴随着计算代价的增长。作为ITU-T的VCEG和
 ISO/IEC的MPEG所最新制定标准的H.264，相较于之前的H.261、H.263、MPEG-1/2/4等标准，在编码效率上有着
@@ -180,10 +190,10 @@ ISO/IEC的MPEG所最新制定标准的H.264，相较于之前的H.261、H.263、
 及其改进。 \ref{sec:app2-sim-result} 中给出了仿真结果。最后，在 \ref{sec:app2-conclusion} ，
 我们总结了本文，并给出了未来的方向。
 
-\section{早终止算法}
+\subsection{早终止算法}
 \label{sec:app2-early-termination}
 
-\subsection{可变块大小零运动推断}
+\subsubsection{可变块大小零运动推断}
 
 通常来说，对大多数序列，在ME后相当数量的块会有这零运动矢量，正如 \ref{fig:trans2-zmb} 展示的一样。
 
@@ -275,7 +285,7 @@ H.264中ZMD的关键是如何去决定不同块大小下的阈值。很明显，
 和70\%对应的PSNR值，比精度80\%对应的PSNR高。这种情况是可能的，因为较大的阈值不仅减少了更多的计算，而且减少了编码MV所需的
 比特，然后节省的比特提高了总体PSNR。
 
-\subsection{可变块大小最佳运动推断}
+\subsubsection{可变块大小最佳运动推断}
 \label{sec:vbbmd}
 
 在减少计算量上，尽管VBZMD已经取得了相当好的表现，但我们仍可以将其改进以得到更好的表现。在H.264的中,当前块的左、上和右上
@@ -321,7 +331,7 @@ H.264中ZMD的关键是如何去决定不同块大小下的阈值。很明显，
 近似地设置 $R(m-p)$ 为10。我们定义 $QP=32$ 条件下的阈值为标准阈值，对于其他的 $QP$ 取值，相应的阈值应设置为
 标准阈值加上 $ (\lambda_{QP} - \lambda_{32}) x 10$。
 
-\section{模拟结果}
+\subsection{模拟结果}
 \label{sec:app2-sim-result}
 
 我们将VBBMD实现在了H.264参考编码器上，并使用UMHexagonS快速ME算法。我们设置运动搜多范围为32，并设置
@@ -344,7 +354,7 @@ Salesman, News, Silent, Coastguard和Foreman序列。所有序列均为QCIF格�
   \label{fig:trans2-result}
 \end{figure}
 
-\section{结论}
+\subsection{结论}
 \label{sec:app2-conclusion}
 
 本文提出了一种H.264视频编码的早终止方法VBBMD，该方法通过进一步减少计算总量来帮助现有的快速运动搜索
@@ -352,3 +362,10 @@ Salesman, News, Silent, Coastguard和Foreman序列。所有序列均为QCIF格�
 搜索相关联的计算可以被减少。在该方法中，考虑了复杂度的降低的同时，阈值通过基于不同块大小的检测精度来确定，
 这使得阈值决策更加合理。实验结果表明，我们提出的方法实现了显著的复杂度降低，而视频质量的退化是可以忽略不计的。
 未来的方向可能包括使阈值根据量化级别和运动级别自适应调整，并将早终止方法应用于子像素的运动估计。
+
+\subsection*{References}
+
+\begin{translationbib}
+  \item Yang, Libo, et al. "An effective variable block-size early termination algorithm for H. 264 video coding." 
+  IEEE Transactions on Circuits and Systems for Video Technology 15.6 (2005): 784-788.
+\end{translationbib}
