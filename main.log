@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  28 MAY 2018 15:58
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  2 JUN 2018 00:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2341,7 +2341,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 
 ] [2]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 81.
+(Font)              scaled to size 8.0pt on input line 82.
  [3]) [4]
 \openout2 = `data/chap02.aux'.
 
@@ -2373,7 +2373,7 @@ File: figures/coding-intra-direction-demo.png Graphic file (type bmp)
 <figures/coding-intra-direction-demo.png>
  [8]
 Package hyperref Info: bookmark level for unknown equation defaults to 0 on inp
-ut line 136.
+ut line 140.
 File: figures/coding-intra-tm.png Graphic file (type bmp)
 <figures/coding-intra-tm.png>
  [9] [10] [11]
@@ -2389,7 +2389,7 @@ File: figures/coding-av1-inter-intra.png Graphic file (type bmp)
 <figures/coding-av1-inter-intra.png>
  [14]
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 290.
+(Font)              scaled to size 6.0pt on input line 294.
 File: figures/coding-smooth-mode.png Graphic file (type bmp)
 <figures/coding-smooth-mode.png>
 File: figures/coding-smooth-function.png Graphic file (type bmp)
@@ -2399,16 +2399,44 @@ File: figures/coding-smooth-function.png Graphic file (type bmp)
 
  (./data/chap03.tex
 第3章
-) [17
+[17
 
 
 
 ]
+File: figures/algorithm-h265-flowchart.png Graphic file (type bmp)
+<figures/algorithm-h265-flowchart.png>
+
+Underfull \hbox (badness 3690) in paragraph at lines 50--53
+[]\TU/SimSun(0)/m/n/12.045 原 论 文 中，|  编 码 的 表 现 以 $\U/ntxmia/m/it/12.045 ^^A\OM
+L/ntxmi/m/it/12.045 Bitrate\LMS/ntxsy/m/n/12.045 »¹\OML/ntxmi/m/it/12.045 B[] \
+LMS/ntxsy/m/n/12.045 ^^@ \OML/ntxmi/m/it/12.045 B[]\LMS/ntxsy/m/n/12.045 º^^9d\
+OML/ntxmi/m/it/12.045 B[] \LMS/ntxsy/m/n/12.045 ^^C \OT1/ntxtlf/m/n/12.045 100\
+LMS/ntxsy/m/n/12.045 ¼$ \TU/SimSun(0)/m/n/12.045 和
+ []
+
+[18]
+File: figures/algorithm-rdcost-distribution.png Graphic file (type bmp)
+<figures/algorithm-rdcost-distribution.png>
+File: figures/algorithm-rdcost-distribution-500.png Graphic file (type bmp)
+<figures/algorithm-rdcost-distribution-500.png>
+ [19]
+File: figures/algorithm-best-rdcost-distribution.png Graphic file (type bmp)
+<figures/algorithm-best-rdcost-distribution.png>
+File: figures/algorithm-best-rdcost-distribution-500.png Graphic file (type bmp
+)
+<figures/algorithm-best-rdcost-distribution-500.png>
+File: figures/algorithm-rdcost-distribution-miss.png Graphic file (type bmp)
+<figures/algorithm-rdcost-distribution-miss.png>
+File: figures/algorithm-rdcost-distribution-miss-500.png Graphic file (type bmp
+)
+<figures/algorithm-rdcost-distribution-miss-500.png>
+ [20]) [21]
 \openout2 = `data/chap04.aux'.
 
  (./data/chap04.tex
 第4章
-) [18
+) [22
 
 
 
@@ -2417,31 +2445,32 @@ File: figures/coding-smooth-function.png Graphic file (type bmp)
 
  (./data/chap05.tex
 第5章
-) [19
+) [23
 
 
 
-] (./main.lof)
+] (./main.lof [24
+
+
+
+
+])
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [20
-
-
-
-
-] (./main.lot)
+ [25] (./main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [21
+ [26
 
 
 ] (./main.loe)
 \tf@loe=\write7
 \openout7 = `main.loe'.
 
- (./main.bbl [22
+ (./main.bbl
+[27
 
 
 ]
@@ -2453,34 +2482,28 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.0pt on input line 47.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 47.
-)
-[23
+) [28
 
 
 ]
 \openout2 = `data/ack.aux'.
 
- (./data/ack.tex [24
+ (./data/ack.tex [29
 
 
 
-]) [25
+]) [30
 
 
 ] (./data/appendix01.tex
 附录 A
-[26
+[31
 
 
 ]
 File: figures/trans-cu-demo.png Graphic file (type bmp)
 <figures/trans-cu-demo.png>
- [27]
-
-LaTeX Warning: Reference `trans-algorithm' on page 28 undefined on input line 9
-4.
-
-[28]
+ [32] [33]
 File: figures/trans-algorithm.png Graphic file (type bmp)
 <figures/trans-algorithm.png>
 
@@ -2494,41 +2517,41 @@ S/ntxsy/m/n/12.045 º$ \TU/SimSun(0)/m/n/12.045 来 衡 量，|  并 且 时 间
 
 File: figures/trans-cfg.png Graphic file (type bmp)
 <figures/trans-cfg.png>
-[29]
+[34]
 File: figures/trans-result.png Graphic file (type bmp)
 <figures/trans-result.png>
- [30] [31]
+ [35] [36]
 File: figures/trans2-zmb.png Graphic file (type bmp)
 <figures/trans2-zmb.png>
- [32]
+ [37]
 File: figures/trans2-7-predict-mode.png Graphic file (type bmp)
 <figures/trans2-7-predict-mode.png>
- [33]
+ [38]
 File: figures/trans2-ac-foreman.png Graphic file (type bmp)
 <figures/trans2-ac-foreman.png>
- [34]
+ [39]
 File: figures/trans2-vbzmd.png Graphic file (type bmp)
 <figures/trans2-vbzmd.png>
- [35]
+ [40]
 File: figures/trans2-vbzmd-performance.png Graphic file (type bmp)
 <figures/trans2-vbzmd-performance.png>
- [36] [37]
+ [41] [42]
 File: figures/trans2-neighboring-block.png Graphic file (type bmp)
 <figures/trans2-neighboring-block.png>
 File: figures/trans2-predict-vec-block.png Graphic file (type bmp)
 <figures/trans2-predict-vec-block.png>
- [38]
+ [43]
 File: figures/trans2-vbbmd.png Graphic file (type bmp)
 <figures/trans2-vbbmd.png>
- [39]
+ [44]
 File: figures/trans2-result.png Graphic file (type bmp)
 <figures/trans2-result.png>
- [40])
+ [45])
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 81.
- [41]
+ [46]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
  (./main.aux
 (./data/chap01.aux) (./data/chap02.aux) (./data/chap03.aux) (./data/chap04.aux)
@@ -2536,22 +2559,19 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 81.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 81.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C1467E9B4D6A7246792DFBA6CBB99A40.
+(rerunfilecheck)             Checksum: 5E68F3BB744D2CA78335866B36CDFDFA.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: There were undefined references.
-
  ) 
 Here is how much of TeX's memory you used:
- 32180 strings out of 492970
- 612739 string characters out of 6139398
- 707330 words of memory out of 5000000
- 35633 multiletter control sequences out of 15000+600000
+ 32216 strings out of 492970
+ 614241 string characters out of 6139398
+ 708522 words of memory out of 5000000
+ 35662 multiletter control sequences out of 15000+600000
  630793 words of font info for 159 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
  66i,18n,96p,2527b,667s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (48 pages).
+Output written on main.pdf (53 pages).

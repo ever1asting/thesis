@@ -91,7 +91,7 @@ Mode & = \{ SKIP, Inter2Nx2N, Inter2NxN, InterNx2N, InterNxN \}
 这里，Mode表示按根据复杂度确定的预测模式的有序集合，而 $\mathop{m'}$ 则是为当前CU深度选择的
 预测模式，且Threshold将根据Mode选择。在 \ref{eq-pruning-condition} 中，通过从SKIP到InterNxN，不断
 改变Threshold的值，剪枝过程的可能性将被推断。若Threshold被设置为SKIP时，剪枝过程将不会对压缩效率产生
-影响；否则，以降低压缩效率为代价，更多的子树将被剪去。根据上述分析，我们提出了 \ref{trans-algorithm} 
+影响；否则，以降低压缩效率为代价，更多的子树将被剪去。根据上述分析，我们提出了 \ref{fig:trans-algorithm} 
 所示的剪枝过程。
 
 
