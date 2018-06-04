@@ -67,52 +67,46 @@
 
 % 定义中英文摘要和关键字
 \begin{cabstract}
-  在直播行业
+  随数字媒体娱乐的发展，人们对视频的要求愈发增加，更高的画质、更小的体积是多种多样需求的基础，
+  而这些都离不开视频编码技术。为解决主流视频编码标准的高昂版权税所带来的困扰，Google于2010年
+  启动WebM计划，旨在定制开源、免版权税的视频编码标准，历经VP8、VP9两代编码，新一代的视频编码
+  标准AV1于2015年开始制定，并于2017年底完成了基本框架的编写。
 
-  论文的摘要是对论文研究内容和成果的高度概括。摘要应对论文所研究的问题及其研究目
-  的进行描述，对研究方法和过程进行简单介绍，对研究成果和所得结论进行概括。摘要应
-  具有独立性和自明性，其内容应包含与论文全文同等量的主要信息。使读者即使不阅读全
-  文，通过摘要就能了解论文的总体内容和主要成果。
+  对于新生的视频编码标准AV1，其在编码速度方面不尽如人意，通过移植在已有视频编码标准上的加速算法
+  来加速，是有广阔的空间与前景的。本文着眼于基于早终止思想的视频编码加速算法，以剪枝策略为核心，
+  通过不同的剪枝条件移植了几种加速算法。移植的算法是基于K Choi和SH Park等人的工作 \cite{choi2011coding}，
+  笔者根据AV1标准的实际情况进行了一定程度的移植、修改与改进。
 
-  论文摘要的书写应力求精确、简明。切忌写成对论文书写内容进行提要的形式，尤其要避
-  免“第 1 章……；第 2 章……；……”这种或类似的陈述方式。
+  本文首先介绍了VP9标准下，视频编码的主要流程，然后通过对比介绍了AV1标准的改动点；后续有简入难，
+  介绍了三种早终止加速算法，并在随后给出了定量化的实验结果；文末对于所做的工作做了总结，并对
+  未来的工作作出展望。
 
-  本文介绍清华大学论文模板 \thuthesis{} 的使用方法。本模板符合学校的本科、硕士、
-  博士论文格式要求。
-
-  本文的创新点主要有：
-  \begin{itemize}
-    \item 用例子来解释模板的使用方法；
-    \item 用废话来填充无关紧要的部分；
-    \item 一边学习摸索一边编写新代码。
-  \end{itemize}
-
-  关键词是为了文献标引工作、用以表示全文主要内容信息的单词或术语。关键词不超过 5
-  个，每个关键词中间用分号分隔。（模板作者注：关键词分隔符不用考虑，模板会自动处
-  理。英文关键词同理。）
 \end{cabstract}
 
 % 如果习惯关键字跟在摘要文字后面，可以用直接命令来设置，如下：
 % \ckeywords{\TeX, \LaTeX, CJK, 模板, 论文}
 
 \begin{eabstract}
-   An abstract of a dissertation is a summary and extraction of research work
-   and contributions. Included in an abstract should be description of research
-   topic and research objective, brief introduction to methodology and research
-   process, and summarization of conclusion and contributions of the
-   research. An abstract should be characterized by independence and clarity and
-   carry identical information with the dissertation. It should be such that the
-   general idea and major contributions of the dissertation are conveyed without
-   reading the dissertation.
+  With the development of digital media entertainment, people's demand for video is increasing. 
+  Higher quality and smaller volume are the foundation of requirements. And these can not be 
+  separated from the video coding technology. To solve the high copyright tax problem of mainstream 
+  video coding standards, Google launched the WebM program in 2010 to customize open source, royalty 
+  free video coding standards. After the two standards VP8 and VP9, the new generation of video coding 
+  standard AV1 was formulated in 2015, and the basic framework was completed at the end of 2017.
 
-   An abstract should be concise and to the point. It is a misunderstanding to
-   make an abstract an outline of the dissertation and words ``the first
-   chapter'', ``the second chapter'' and the like should be avoided in the
-   abstract.
+  The new video coding standard AV1, which is unsatisfactory in the coding speed, has a broad space 
+  and prospect through the acceleration algorithm transplanted on the existing video coding standard.
+  This paper focuses on the accelerating algorithm of video coding based on the idea of early termination. 
+  With the pruning strategy as the core, several accelerating algorithms are transplanted through 
+  different pruning conditions.The transplant algorithm is based on the work of K Choi and 
+  SH Park et al \cite{choi2011coding}. I have carried out a certain degree of transplant, 
+  modification and improvement according to the actual situation of the AV1 standard.
+  
+  This paper first introduces the main process of video coding under the VP9 standard, and then 
+  introduces the modifications of AV1 standard through comparison. Three kinds of early termination 
+  acceleration algorithms are introduced, and experimental results are given afterwards. 
+  At the end of the paper, the work done is summarized, and the future work is prospected.
 
-   Key words are terms used in a dissertation for indexing, reflecting core
-   information of the dissertation. An abstract may contain a maximum of 5 key
-   words, with semi-colons used in between to separate one another.
 \end{eabstract}
 
 % \ekeywords{\TeX, \LaTeX, CJK, template, thesis}

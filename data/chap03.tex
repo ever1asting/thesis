@@ -1,9 +1,9 @@
 \chapter{早终止加速算法}
 \label{cha:algorithm}
 
-\section{基于树剪枝的早终止算法}
+\section{H.265树剪枝早终止算法}
 
-\subsection{原始算法}
+\subsection{原算法原理}
 
 在 \ref{sec:current-status} 部分曾提到，K Choi和SH Park等人在HEVC上针对四叉树划分过程提出了优化算法，
 该算法使用率失真代价作为衡量标准，在满足一定条件时对四叉树进行剪枝，从而节省了子节点的计算量，以达到加速的
@@ -40,12 +40,12 @@ RDCost(CU_t) < \sum_{i=0}^3 RDCost(CU^i_{t-1})
 
 \begin{figure}[H] % use float package if you want it here
   \centering
-  \includegraphics[width = 0.6\textwidth]{algorithm-h265-flowchart}
+  \includegraphics[width = 0.7\textwidth]{algorithm-h265-flowchart}
   \caption{H.265树剪枝早终止算法流程图}
   \label{fig:algorithm-h265-flowchart}
 \end{figure}
 
-\subsection{原始算法成果}
+\subsection{原算法成果}
 
 原论文中，编码的表现以 $\Delta Bitrate[ (B_{PRO} - B_{REF})/B_{REF} * 100 ]$ 和 $ \Delta PSNR(P_{PRO} - P_{REF})$ 
 来衡量，并且时间的减少以 $ \Delta Time[ (T_{PRO} - T_{REF})/T_{REF} * 100 ]$ 来衡量。所选用的测试视频为H.265上所使用
@@ -55,9 +55,7 @@ RDCost(CU_t) < \sum_{i=0}^3 RDCost(CU^i_{t-1})
 平均来看，该方法能有效节省编码时间约40\%。这是十分出色的成果，在移植算法时，该方法是十分清晰的，因此有着很高的可移植性，
 尽管AV1标准与H.265有诸多不同，但如此优秀的成果在移植后，我们可以期望其有着不错的表现。
 
-\section{移植到AV1上的树剪枝算法}
-
-\subsection{原算法的缺陷}
+\subsection{原算法缺陷}
 
 尽管原算法有着简明的形式和优异的表现，但观察剪枝的核心条件 \ref{eq-algrithm-origin} 不难发现，Threshold的值对于剪枝至关
 重要，该阈值完全决定了当前节点的子节点代价是否需要计算。然而，原论文中仅指出Threshold的值应根据预测模式进行选取，而该值具体
@@ -65,7 +63,10 @@ RDCost(CU_t) < \sum_{i=0}^3 RDCost(CU^i_{t-1})
 所需要应对的模式仅有 $\{ SKIP, Inter2Nx2N, Inter2NxN, InterNx2N, InterNxN \} $ 五种，而在AV1中，除去常规的上述几种外，
 还引入了如 \ref{fig:coding-av1-mode} 所示的T型划分和水平/垂直四分，这使得Threshold的数量增多，测定难度进一步加大。
 
+\section{AV1树剪枝早终止算法}
+
 \subsection{阈值测定的尝试}
+\label{sec:algorithm-threshold-try}
 
 较大的阈值测定难度并不妨碍笔者对Threshold值的推断作出一些初步的努力，笔者以park\_joy\_90p\_8\_420这一AV1上的典型测试用
 视频进行探究，设定编码后视频的比特率为200，对各节点RDCost的值做一些统计。被统计节点共5166个，这些节点中，RDCost最小值为
@@ -146,6 +147,89 @@ Threshold的思路，退而求其次，使用效果不那么好、但确定性�
 
 \subsection{AV1中的RDCost}
 
-\subsection{移植后的算法}
+尽管在整个早终止树剪枝优化中都不会对AV1的RDCost计算方式做改变，但仍需要对这种代价计算方式做简单的介绍：
+RDCost为率失真代价，是一种在率失真优化过程中用于比较的代价。R指的是码率，D则是指失真程度，在高码率的条件下，
+R-D有着如 \ref{eq-algrithm-rdcost} 所示的关系。
 
-\section{加权树剪枝早终止算法}
+\begin{equation}
+\label{eq-algrithm-rdcost}
+R(D) = \alpha ln(\frac{\delta^2}{D})
+\end{equation}
+
+这里$R(D)$为码率，$D$为失真程度，$\delta^2$ 为方差，$\alpha$为某种系数。不难看出，图像失真的减小意味着码率的
+增大，而要减小码率则要以图像失真为代价，因此，R-D间的平衡就是率失真优化过程的意义所在，而这一寻找平衡过程中
+用来比较的代价正是RDCost。
+
+AV1中的RDCost函数实现如 \ref{eq-algorithm-av1-rdcost} 所示，整个优化过程中，RDCost的计算方法是一致的，
+而该式背后所蕴含的数学原理较为复杂，所使用的常数其依据也相对繁琐，并且不是本文所关注的重点，因此在此不做过多分析，
+仅将其理解为一种合理的衡量节点计算复杂度的代价值即可。
+
+\begin{equation}
+\label{eq-algorithm-av1-rdcost}
+\left\{\begin{array}{l}
+RDCOST(RM, R, D) = (R2(R * RM, 9) + D * 128) \\
+R2(value, n) = \lfloor \frac{value + 2^{n-1}}{2^n} \rfloor
+\end{array}\right.
+\end{equation}
+
+\subsection{子节点和剪枝早终止算法}
+
+为了解决无法通过对大量视频进行测试选定Threshold的困境，笔者选用了效果不够好但确定性强的剪枝算法，即基于与子节点
+代价和比较的剪枝策略，其剪枝条件的公式化描述如 \ref{eq-algrithm-av1-pruning} 所示。
+
+\begin{equation}
+\label{eq-algrithm-av1-pruning}
+RDCost(T_t) < \sum_{i=0}^m RDCost(T^i_{t-1})
+\end{equation}
+
+这里，$RDCost(T_t)$是当前节点的RDCost，$m$为子节点个数，完全由划分模式决定，$RDCost(T^i_{t-1})$为某一子节点
+的代价值。即该算法中，当假定当前节点按某一模式划分后，若该节点的代价值小于其全部子节点的代价之和，可以认为该节点
+按该模式划分会使计算复杂度增大，由此排除该划分模式。算法的流程图如 \ref{fig:algorithm-av1-flowchart} 所示。
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.7\textwidth]{algorithm-av1-flowchart}
+  \caption{AV1子节点和剪枝早终止算法流程图}
+  \label{fig:algorithm-av1-flowchart}
+\end{figure}
+
+\subsection{子节点加权和剪枝早终止算法}
+
+基于子节点和的早终止剪枝算法能在一定程度上降低计算复杂度，起到加速视频编码的作用。再不对大量视频做测试选取阈值的
+前提下，笔者对基于子节点和的早终止剪枝算法稍作改进，以期更好的加速效果。考察AV1视频编码标准中的子节点划分模式，
+不难注意到如 \ref{fig:algorithm-weighted-4-mode} 所示的四种划分方法是“不规则”的。
+
+\begin{figure}[H] % use float package if you want it here
+  \centering
+  \includegraphics[width = 0.8\textwidth]{algorithm-weighted-4-mode}
+  \caption{AV1中四种“不规则”划分方式}
+  \label{fig:algorithm-weighted-4-mode}
+\end{figure}
+
+这里的“不规则”是指相较于其他五种划分方式，这四种T型划分所分出的子节点的大小是不一致的，即一大两小。
+为方便讨论，不妨认为当前节点的块大小为$2Nx2N$，则我们考虑大小为$Nx2N$的子块。首先从所包含像素点个数的角度来看，
+$Nx2N$的子块包含更多的像素点；其次从后续的变换环节来看，尽管相较于VP9，AV1对非正方形子块直接参与变换有了一定的
+支持，但其仍有着更大的计算量。因此，在计算子节点和时，笔者希望$Nx2N$的子块会更显著地影响子节点的代价和，将子节点
+代价做加权和的想法应运而生，其公式化的表述如 \ref{eq-algrithm-av1-weighted-pruning} 所示。
+
+\begin{equation}
+\label{eq-algrithm-av1-weighted-pruning}
+RDCost(T_t) < \lambda * RDCost(T^0_{t-1}) + RDCost(T^1_{t-1}) + RDCost(T^2_{t-1})
+\end{equation}
+
+上式中，$T^0_{t-1}$ 为 $Nx2N$ 的子块，而 $T^1_{t-1}$、$T^2_{t-1}$ 则是 $NxN$的子块，$\lambda$ 为权重。
+一个自然的想法是将权重值取为2，实验证明，取权重$\lambda = 2$时确实可以进一步地加速视频的编码，关于加速程度
+及比特率、画质损失的比较将在后续 \ref{cha:result} 部分给出定量的结果。
+
+\subsection{阈值剪枝早终止算法}
+
+如 \ref{sec:algorithm-threshold-try} 所分析，提出一个适用于绝大多数视频的Threshold是十分困难的，但是
+针对测试用的视频集合，设计一个合理的Threshold来加速确是可能的。因此，基于与阈值比较进行剪枝的早终止算法也被
+移植到了AV1平台上，其剪枝条件如 \ref{eq-algorithm-av1-threshold-pruning} 所示。
+
+\begin{equation}
+\label{eq-algorithm-av1-threshold-pruning}
+(\mathop{m'} =  \mathop{argmin}\limits_{m \in Mode} RDCost(T_t)) \le Threshold 
+\end{equation}
+
+Mode指AV1标准中的九种子节点划分方式，针对不同Threshold的值所取得的不同成果将在 \ref{cha:result} 部分详细展示。

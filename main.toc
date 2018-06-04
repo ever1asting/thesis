@@ -5,13 +5,12 @@
 \contentsline {section}{\numberline {1.4}论文结构}{4}{section.1.4}
 \contentsline {chapter}{\numberline {第2章}视频编码概述}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}VP9视频编码标准}{5}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}HEVC与H.265}{5}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}基本编码单元：块}{5}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}块的四叉树划分}{5}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}帧间预测}{7}{subsection.2.1.4}
-\contentsline {subsection}{\numberline {2.1.5}帧内预测}{8}{subsection.2.1.5}
-\contentsline {subsection}{\numberline {2.1.6}残差编码}{10}{subsection.2.1.6}
-\contentsline {subsection}{\numberline {2.1.7}后续过程}{11}{subsection.2.1.7}
+\contentsline {subsection}{\numberline {2.1.1}基本编码单元：块}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}块的四叉树划分}{5}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}帧间预测}{7}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}帧内预测}{8}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}残差编码}{10}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.6}后续过程}{11}{subsection.2.1.6}
 \contentsline {section}{\numberline {2.2}AV1视频编码标准}{11}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}概述}{11}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}块的划分}{11}{subsection.2.2.2}
@@ -19,35 +18,40 @@
 \contentsline {subsection}{\numberline {2.2.4}帧内预测}{14}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.2.5}其他}{16}{subsection.2.2.5}
 \contentsline {chapter}{\numberline {第3章}早终止加速算法}{17}{chapter.3}
-\contentsline {section}{\numberline {3.1}基于树剪枝的早终止算法}{17}{section.3.1}
-\contentsline {subsection}{\numberline {3.1.1}原始算法}{17}{subsection.3.1.1}
-\contentsline {subsection}{\numberline {3.1.2}原始算法成果}{18}{subsection.3.1.2}
-\contentsline {section}{\numberline {3.2}移植到AV1上的树剪枝算法}{19}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}原算法的缺陷}{19}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}阈值测定的尝试}{19}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}AV1中的RDCost}{21}{subsection.3.2.3}
-\contentsline {subsection}{\numberline {3.2.4}移植后的算法}{21}{subsection.3.2.4}
-\contentsline {section}{\numberline {3.3}加权树剪枝早终止算法}{21}{section.3.3}
-\contentsline {chapter}{\numberline {第4章}实验结果}{22}{chapter.4}
-\contentsline {chapter}{\numberline {第5章}结论}{23}{chapter.5}
-\contentsline {section}{\numberline {5.1}工作总结}{23}{section.5.1}
-\contentsline {section}{\numberline {5.2}进一步的工作}{23}{section.5.2}
-\contentsline {chapter}{插图索引}{24}{section*.27}
-\contentsline {chapter}{表格索引}{26}{section*.29}
-\contentsline {chapter}{公式索引}{27}{section*.31}
-\contentsline {chapter}{参考文献}{28}{section*.33}
-\contentsline {chapter}{致\hspace {1em}谢}{29}{section*.35}
-\contentsline {chapter}{声\hspace {1em}明}{30}{section*.37}
-\contentsline {chapter}{\numberline {附录 A}书面翻译}{31}{appendix.A}
-\contentsline {section}{\numberline {A.1}基于编码树剪枝的HEVC快速编码单元推断方法}{31}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1}引言}{31}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2}基于树剪枝的快速编码单元推断}{32}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3}实验结果}{34}{subsection.A.1.3}
-\contentsline {subsection}{\numberline {A.1.4}结论}{36}{subsection.A.1.4}
-\contentsline {section}{\numberline {A.2}一种有效的H.264上的可变块大小早终止算法}{36}{section.A.2}
-\contentsline {subsection}{\numberline {A.2.1}引言}{36}{subsection.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}早终止算法}{37}{subsection.A.2.2}
-\contentsline {subsubsection}{\numberline {A.2.2.1}可变块大小零运动推断}{37}{subsubsection.A.2.2.1}
-\contentsline {subsubsection}{\numberline {A.2.2.2}可变块大小最佳运动推断}{42}{subsubsection.A.2.2.2}
-\contentsline {subsection}{\numberline {A.2.3}模拟结果}{44}{subsection.A.2.3}
-\contentsline {subsection}{\numberline {A.2.4}结论}{45}{subsection.A.2.4}
+\contentsline {section}{\numberline {3.1}H.265树剪枝早终止算法}{17}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}原算法原理}{17}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}原算法成果}{18}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}原算法缺陷}{19}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}AV1树剪枝早终止算法}{19}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}阈值测定的尝试}{19}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}AV1中的RDCost}{21}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}子节点和剪枝早终止算法}{22}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.4}子节点加权和剪枝早终止算法}{23}{subsection.3.2.4}
+\contentsline {subsection}{\numberline {3.2.5}阈值剪枝早终止算法}{24}{subsection.3.2.5}
+\contentsline {chapter}{\numberline {第4章}实验结果}{25}{chapter.4}
+\contentsline {section}{\numberline {4.1}子节点和剪枝算法实验结果}{25}{section.4.1}
+\contentsline {section}{\numberline {4.2}加权子节点和剪枝算法实验结果}{26}{section.4.2}
+\contentsline {section}{\numberline {4.3}阈值剪枝算法实验结果}{27}{section.4.3}
+\contentsline {section}{\numberline {4.4}小结}{27}{section.4.4}
+\contentsline {chapter}{\numberline {第5章}结论}{28}{chapter.5}
+\contentsline {section}{\numberline {5.1}工作总结}{28}{section.5.1}
+\contentsline {section}{\numberline {5.2}进一步的工作}{28}{section.5.2}
+\contentsline {chapter}{插图索引}{29}{section*.35}
+\contentsline {chapter}{表格索引}{31}{section*.37}
+\contentsline {chapter}{公式索引}{32}{section*.39}
+\contentsline {chapter}{参考文献}{33}{section*.41}
+\contentsline {chapter}{致\hspace {1em}谢}{34}{section*.43}
+\contentsline {chapter}{声\hspace {1em}明}{35}{section*.45}
+\contentsline {chapter}{\numberline {附录 A}书面翻译}{36}{appendix.A}
+\contentsline {section}{\numberline {A.1}基于编码树剪枝的HEVC快速编码单元推断方法}{36}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}引言}{36}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}基于树剪枝的快速编码单元推断}{37}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3}实验结果}{39}{subsection.A.1.3}
+\contentsline {subsection}{\numberline {A.1.4}结论}{41}{subsection.A.1.4}
+\contentsline {section}{\numberline {A.2}一种有效的H.264上的可变块大小早终止算法}{41}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}引言}{41}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}早终止算法}{42}{subsection.A.2.2}
+\contentsline {subsubsection}{\numberline {A.2.2.1}可变块大小零运动推断}{42}{subsubsection.A.2.2.1}
+\contentsline {subsubsection}{\numberline {A.2.2.2}可变块大小最佳运动推断}{47}{subsubsection.A.2.2.2}
+\contentsline {subsection}{\numberline {A.2.3}模拟结果}{49}{subsection.A.2.3}
+\contentsline {subsection}{\numberline {A.2.4}结论}{50}{subsection.A.2.4}
