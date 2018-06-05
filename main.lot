@@ -1,7 +1,10 @@
 \contentsline {table}{\numberline {1.1}{\ignorespaces H.264、H.265、AV1比较\relax }}{3}{table.caption.11}
-\contentsline {table}{\numberline {4.1}{\ignorespaces park\_joy实验，比特率对比\relax }}{25}{table.caption.29}
-\contentsline {table}{\numberline {4.2}{\ignorespaces park\_joy实验，PSNR对比\relax }}{25}{table.caption.30}
-\contentsline {table}{\numberline {4.3}{\ignorespaces park\_joy实验，编码用时对比\relax }}{26}{table.caption.31}
-\contentsline {table}{\numberline {4.4}{\ignorespaces park\_joy实验，比特率对比\relax }}{26}{table.caption.32}
-\contentsline {table}{\numberline {4.5}{\ignorespaces park\_joy实验，PSNR对比\relax }}{27}{table.caption.33}
-\contentsline {table}{\numberline {4.6}{\ignorespaces park\_joy实验，编码用时对比\relax }}{27}{table.caption.34}
+\contentsline {table}{\numberline {4.1}{\ignorespaces 子节点和剪枝算法park\_joy实验（比特率）\relax }}{25}{table.caption.29}
+\contentsline {table}{\numberline {4.2}{\ignorespaces 子节点和剪枝算法park\_joy实验（PSNR）\relax }}{26}{table.caption.30}
+\contentsline {table}{\numberline {4.3}{\ignorespaces 子节点和剪枝算法park\_joy实验（编码时间）\relax }}{26}{table.caption.31}
+\contentsline {table}{\numberline {4.4}{\ignorespaces 子节点和剪枝算法miss\_am\_qcif实验（编码时间）\relax }}{27}{table.caption.32}
+\contentsline {table}{\numberline {4.5}{\ignorespaces 子节点加权和剪枝算法park\_joy实验（比特率）\relax }}{27}{table.caption.33}
+\contentsline {table}{\numberline {4.6}{\ignorespaces 子节点加权和剪枝算法park\_joy实验（PSNR）\relax }}{28}{table.caption.34}
+\contentsline {table}{\numberline {4.7}{\ignorespaces 子节点加权和剪枝算法park\_joy实验（编码时间）\relax }}{28}{table.caption.35}
+\contentsline {table}{\numberline {4.8}{\ignorespaces 子节点加权和剪枝算法miss\_am\_qcif实验（编码时间）\relax }}{28}{table.caption.36}
+\contentsline {table}{\numberline {4.9}{\ignorespaces 阈值剪枝算法park\_joy实验（Threshold = 16037601）\relax }}{29}{table.caption.37}

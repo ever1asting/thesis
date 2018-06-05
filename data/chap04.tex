@@ -4,68 +4,94 @@
 \section{子节点和剪枝算法实验结果}
 
 首先给出在park\_joy\_90p\_8\_420这个视频上的实验结果。在使用基于子节点和剪枝的早终止算法前后，
-视频编码在比特率、画质、编码时间三方面的变化如 \ref{tab:result-sum-park-bitrate}、\ref{tab:result-sum-park-psnr}、
-\ref{tab:result-sum-park-time} 所示。
+考察视频编码在比特率、画质、编码时间三方面的变化，以下标PRO指代笔者所提出的算法、而REF指代不做改进时的情况，
+比特率的变化以 $\Delta Bitrate[ (B_{PRO} - B_{REF})/B_{REF} * 100 ]$ 来衡量；画质的变化则用PSNR度量，
+比较时使用 $ \Delta PSNR(P_{PRO} - P_{REF})$ 作比较；而编码时间的比较也使用相对减少的百分比
+ $ \Delta Time[ (T_{PRO} - T_{REF})/T_{REF} * 100 ]$ 衡量。具体结果如 \ref{tab:result-sum-park-bitrate}、
+\ref{tab:result-sum-park-psnr}、 \ref{tab:result-sum-park-time} 所示，需要说明的是，对单一视频
+测试时，需要预先设定期望的比特率，表格中以 $Bitrate_{cond}$ 标识。
 
 \begin{table}[H]
   \centering
-    \caption{park\_joy实验，比特率对比}
+    \caption{子节点和剪枝算法park\_joy实验（比特率）}
     \label{tab:result-sum-park-bitrate}
     \begin{tabularx}{\linewidth}{XXXX}
       \toprule[1.5pt]
-      预设比特率 & 原始比特率 & 改进算法比特率 & 比较 \\
+      $Bitrate_{cond}$(kb/s) & $Bitrate_{REF}$(b/s) & $Bitrate_{PRO}$(b/s) & $\Delta Bitrate$(\%) \\
       \midrule[1pt]
-      200 & 1 & 2 & 3  \\
-      250 & 7 & 4 & 10 \\
-      300 & 1 & 2 & 3  \\
-      350 & 7 & 4 & 10 \\
-      400 & 1 & 2 & 3  \\
-      450 & 7 & 4 & 10 \\
-      500 & 1 & 2 & 3  \\
+      200 & 297160 & 294880 & -0.77  \\
+      250 & 321160 & 319600 & -0.49 \\
+      300 & 344760 & 342120 & -0.77  \\
+      350 & 368800 & 365560 & -0.88 \\
+      400 & 392200 & 391320 & -0.22  \\
+      450 & 416800 & 413520 & -0.79 \\
+      500 & 437720 & 436760 & -0.22  \\
       \bottomrule[1.5pt]
     \end{tabularx}
 \end{table}
 
 \begin{table}[H]
   \centering
-    \caption{park\_joy实验，PSNR对比}
+    \caption{子节点和剪枝算法park\_joy实验（PSNR）}
     \label{tab:result-sum-park-psnr}
     \begin{tabularx}{\linewidth}{XXXX}
       \toprule[1.5pt]
-      预设比特率 & 原始PSNR & 改进算法PSNR & 比较 \\
+      $Bitrate_{cond}$(kb/s) & $PSNR_{REF}$(dB) & $PSNR_{PRO}$(dB) & $\Delta PSNR$(dB) \\
       \midrule[1pt]
-      200 & 1 & 2 & 3  \\
-      250 & 7 & 4 & 10 \\
-      300 & 1 & 2 & 3  \\
-      350 & 7 & 4 & 10 \\
-      400 & 1 & 2 & 3  \\
-      450 & 7 & 4 & 10 \\
-      500 & 1 & 2 & 3  \\
+      200 & 34.576 & 34.809 & 0.23  \\
+      250 & 35.573 & 35.780 & 0.21 \\
+      300 & 36.420 & 36.591 & 0.17  \\
+      350 & 37.135 & 37.250 & 0.12 \\
+      400 & 37.755 & 37.936 & 0.18  \\
+      450 & 38.305 & 38.464 & 0.16 \\
+      500 & 38.861 & 39.073 & 0.21  \\
       \bottomrule[1.5pt]
     \end{tabularx}
 \end{table}
 
 \begin{table}[H]
   \centering
-    \caption{park\_joy实验，编码用时对比}
+    \caption{子节点和剪枝算法park\_joy实验（编码时间）}
     \label{tab:result-sum-park-time}
     \begin{tabularx}{\linewidth}{XXXX}
       \toprule[1.5pt]
-      预设比特率 & 原始时间 & 改进算法时间 & 比较 \\
+      $Bitrate_{cond}$(kb/s) & $Time_{REF}$(ms) & $Time_{PRO}$(ms) & $\Delta Time$(\%) \\
       \midrule[1pt]
-      200 & 1 & 2 & 3  \\
-      250 & 7 & 4 & 10 \\
-      300 & 1 & 2 & 3  \\
-      350 & 7 & 4 & 10 \\
-      400 & 1 & 2 & 3  \\
-      450 & 7 & 4 & 10 \\
-      500 & 1 & 2 & 3  \\
+      200 & 492815 & 445677 & -9.56  \\
+      250 & 545196 & 423004 & -22.41 \\
+      300 & 541272 & 450985 & -16.68  \\
+      350 & 560691 & 481394 & -14.14 \\
+      400 & 573799 & 479245 & -16.48  \\
+      450 & 540554 & 490609 & -9.24 \\
+      500 & 597913 & 509196 & -14.84  \\
       \bottomrule[1.5pt]
     \end{tabularx}
 \end{table}
 
-啊啊啊ss1
+可以看到，针对park\_joy\_90p\_8\_420这个视频，基于子节点和剪枝的早终止加速算法有着不错的效果：在
+PSNR与比特率几乎没有变化的情况下，所需要的编码时间缩减幅度最小有9.24\%，最大有22.41\%，平均来看，
+这一算法能够使编码时间缩短14.76\%。此外，笔者还在miss\_am\_qcif等视频上做了相同的实验，结果中，比特率
+和PSNR几乎不变，而编码时间的变化如 \ref{tab:result-sum-miss-time} 所示。
 
+% TODO: miss_am_qcif结果
+\begin{table}[H]
+  \centering
+    \caption{子节点和剪枝算法miss\_am\_qcif实验（编码时间）}
+    \label{tab:result-sum-miss-time}
+    \begin{tabularx}{\linewidth}{XXXX}
+      \toprule[1.5pt]
+      $Bitrate_{cond}$(kb/s) & $Time_{REF}$(ms) & $Time_{PRO}$(ms) & $\Delta Time$(\%) \\
+      \midrule[1pt]
+      200 &  &  &   \\
+      250 &  &  &  \\
+      300 &  &  &  \\
+      350 &  &  &  \\
+      400 &  &  &   \\
+      450 &  &  &  \\
+      500 &  &  &  \\
+      \bottomrule[1.5pt]
+    \end{tabularx}
+\end{table}
 
 
 \section{加权子节点和剪枝算法实验结果}
@@ -74,64 +100,122 @@
 画质、编码时间三方面的对比如 \ref{tab:result-weighted-park-bitrate}、\ref{tab:result-weighted-park-psnr}、
 \ref{tab:result-weighted-park-time} 所示。
 
-
 \begin{table}[H]
-  \caption{park\_joy实验，比特率对比}
+  \caption{子节点加权和剪枝算法park\_joy实验（比特率）}
     \label{tab:result-weighted-park-bitrate}
     \begin{tabularx}{\linewidth}{XXXX}
       \toprule[1.5pt]
-      预设比特率 & 原始比特率 & 改进算法比特率 & 比较 \\
+      $Bitrate_{cond}$(kb/s) & $Bitrate_{REF}$(b/s) & $Bitrate_{PRO}$(b/s) & $\Delta Bitrate$(\%) \\
       \midrule[1pt]
-      200 & 1 & 2 & 3  \\
-      250 & 7 & 4 & 10 \\
-      300 & 1 & 2 & 3  \\
-      350 & 7 & 4 & 10 \\
-      400 & 1 & 2 & 3  \\
-      450 & 7 & 4 & 10 \\
-      500 & 1 & 2 & 3  \\
+      200 & 297160 & 295760 & -0.47  \\
+      250 & 321160 & 319480 & -0.52 \\
+      300 & 344760 & 343000 & -0.51  \\
+      350 & 368800 & 365680 & -0.85 \\
+      400 & 392200 & 390760 & -0.37  \\
+      450 & 416800 & 412600 & -1.00 \\
+      500 & 437720 & 435640 & -0.48  \\
       \bottomrule[1.5pt]
     \end{tabularx}
 \end{table}
 
 \begin{table}[H]
   \centering
-    \caption{park\_joy实验，PSNR对比}
+    \caption{子节点加权和剪枝算法park\_joy实验（PSNR）}
     \label{tab:result-weighted-park-psnr}
     \begin{tabularx}{\linewidth}{XXXX}
       \toprule[1.5pt]
-      预设比特率 & 原始PSNR & 改进算法PSNR & 比较 \\
+      $Bitrate_{cond}$(kb/s) & $PSNR_{REF}$(dB) & $PSNR_{PRO}$(dB) & $\Delta PSNR$(dB) \\
       \midrule[1pt]
-      200 & 1 & 2 & 3  \\
-      250 & 7 & 4 & 10 \\
-      300 & 1 & 2 & 3  \\
-      350 & 7 & 4 & 10 \\
-      400 & 1 & 2 & 3  \\
-      450 & 7 & 4 & 10 \\
-      500 & 1 & 2 & 3  \\
+      200 & 34.576 & 34.857 & 0.28  \\
+      250 & 35.573 & 35.685 & 0.11 \\
+      300 & 36.420 & 36.541 & 0.12  \\
+      350 & 37.135 & 37.238 & 0.10 \\
+      400 & 37.755 & 37.922 & 0.17  \\
+      450 & 38.305 & 38.494 & 0.19 \\
+      500 & 38.861 & 38.996 & 0.14  \\
       \bottomrule[1.5pt]
     \end{tabularx}
 \end{table}
 
 \begin{table}[H]
   \centering
-    \caption{park\_joy实验，编码用时对比}
+    \caption{子节点加权和剪枝算法park\_joy实验（编码时间）}
     \label{tab:result-weighted-park-time}
     \begin{tabularx}{\linewidth}{XXXX}
       \toprule[1.5pt]
-      预设比特率 & 原始时间 & 改进算法时间 & 比较 \\
+      $Bitrate_{cond}$(kb/s) & $Time_{REF}$(ms) & $Time_{PRO}$(ms) & $\Delta Time$(\%) \\
       \midrule[1pt]
-      200 & 1 & 2 & 3  \\
-      250 & 7 & 4 & 10 \\
-      300 & 1 & 2 & 3  \\
-      350 & 7 & 4 & 10 \\
-      400 & 1 & 2 & 3  \\
-      450 & 7 & 4 & 10 \\
-      500 & 1 & 2 & 3  \\
+      200 & 492815 & 414570 & -15.87  \\
+      250 & 545196 & 392822 & -27.94 \\
+      300 & 541272 & 425908 & -21.31  \\
+      350 & 560691 & 431319 & -23.07 \\
+      400 & 573799 & 456575 & -20.43  \\
+      450 & 540554 & 462260 & -14.48 \\
+      500 & 597913 & 474520 & -20.64  \\
       \bottomrule[1.5pt]
     \end{tabularx}
 \end{table}
+
+同样可以看到PSNR与比特率变化相差无几，而编码时间进一步减少。在miss\_am\_qcif视频上的实验结果如
+\ref{tab:result-weighted-miss-time} 所示，仅给出编码时间上的对比。
+
+% TODO: miss_am_qcif结果
+\begin{table}[H]
+  \centering
+    \caption{子节点加权和剪枝算法miss\_am\_qcif实验（编码时间）}
+    \label{tab:result-weighted-miss-time}
+    \begin{tabularx}{\linewidth}{XXXX}
+      \toprule[1.5pt]
+      $Bitrate_{cond}$(kb/s) & $Time_{REF}$(ms) & $Time_{PRO}$(ms) & $\Delta Time$(\%) \\
+      \midrule[1pt]
+      200 &  &  &   \\
+      250 &  &  &  \\
+      300 &  &  &  \\
+      350 &  &  &  \\
+      400 &  &  &   \\
+      450 &  &  &  \\
+      500 &  &  &  \\
+      \bottomrule[1.5pt]
+    \end{tabularx}
+\end{table}
+
+
+% TODO: 小结加权和算法成果
+可以看到相较于基于子节点和剪枝的算法，使用加权和能进一步降低视频编码所用的时间。
+
+% TODO: 对比表格？
 
 
 \section{阈值剪枝算法实验结果}
 
-\section{小结}
+如 \ref{sec:algorithm-threshold-try} 所分析，笔者首先选取了80\%最佳RDCost的临界点16,037,601作为Threshold
+进行实验，实验结果上，PSNR与比特率几乎不变，这里不再列出；而所用编码时间上，时间缩短约10\%至20\%不等。这一实验结果
+与基于子节点和的剪枝算法所得到编码时间缩减程度近似。
+
+\begin{table}[H]
+  \centering
+    \caption{阈值剪枝算法park\_joy实验（Threshold = 16037601）}
+    \label{tab:result-threshold-park-time}
+    \begin{tabularx}{\linewidth}{XXXX}
+      \toprule[1.5pt]
+      $Bitrate_{cond}$(kb/s) & $Time_{REF}$(ms) & $Time_{PRO}$(ms) & $\Delta Time$(\%) \\
+      \midrule[1pt]
+      200 & 492815 & 437619 & -11.20  \\
+      250 & 545196 & 432917 & -20.59 \\
+      300 & 541272 & 441926 & -18.35  \\
+      350 & 560691 & 475368 & -15.21 \\
+      400 & 573799 & 461355 & -19.60  \\
+      450 & 540554 & 487155 & -9.88 \\
+      500 & 597913 & 512709 & -14.25  \\
+      \bottomrule[1.5pt]
+    \end{tabularx}
+\end{table}
+
+% more threshold
+
+% 50: 349230
+% 55: 421811
+% 60: 518589
+% 65: 626519
+% 70: 787617
+% 75: 1050873
