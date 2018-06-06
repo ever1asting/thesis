@@ -8,3 +8,5 @@
 \contentsline {table}{\numberline {4.7}{\ignorespaces 子节点加权和剪枝算法park\_joy实验（编码时间）\relax }}{28}{table.caption.35}
 \contentsline {table}{\numberline {4.8}{\ignorespaces 子节点加权和剪枝算法miss\_am\_qcif实验（编码时间）\relax }}{28}{table.caption.36}
 \contentsline {table}{\numberline {4.9}{\ignorespaces 阈值剪枝算法park\_joy实验（Threshold = 16037601）\relax }}{29}{table.caption.37}
+\contentsline {table}{\numberline {4.10}{\ignorespaces 不同阈值在park\_joy上的实验结果\relax }}{30}{table.caption.38}
+\contentsline {table}{\numberline {4.11}{\ignorespaces 不同阈值在miss\_am上的实验结果\relax }}{30}{table.caption.39}
