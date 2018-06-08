@@ -1,12 +1,12 @@
 \contentsline {table}{\numberline {1.1}{\ignorespaces H.264、H.265、AV1比较\relax }}{3}{table.caption.11}
-\contentsline {table}{\numberline {4.1}{\ignorespaces 子节点和剪枝算法park\_joy实验（比特率）\relax }}{25}{table.caption.29}
-\contentsline {table}{\numberline {4.2}{\ignorespaces 子节点和剪枝算法park\_joy实验（PSNR）\relax }}{26}{table.caption.30}
-\contentsline {table}{\numberline {4.3}{\ignorespaces 子节点和剪枝算法park\_joy实验（编码时间）\relax }}{26}{table.caption.31}
-\contentsline {table}{\numberline {4.4}{\ignorespaces 子节点和剪枝算法miss\_am\_qcif实验（编码时间）\relax }}{27}{table.caption.32}
-\contentsline {table}{\numberline {4.5}{\ignorespaces 子节点加权和剪枝算法park\_joy实验（比特率）\relax }}{27}{table.caption.33}
-\contentsline {table}{\numberline {4.6}{\ignorespaces 子节点加权和剪枝算法park\_joy实验（PSNR）\relax }}{28}{table.caption.34}
-\contentsline {table}{\numberline {4.7}{\ignorespaces 子节点加权和剪枝算法park\_joy实验（编码时间）\relax }}{28}{table.caption.35}
-\contentsline {table}{\numberline {4.8}{\ignorespaces 子节点加权和剪枝算法miss\_am\_qcif实验（编码时间）\relax }}{28}{table.caption.36}
-\contentsline {table}{\numberline {4.9}{\ignorespaces 阈值剪枝算法park\_joy实验（Threshold = 16037601）\relax }}{29}{table.caption.37}
-\contentsline {table}{\numberline {4.10}{\ignorespaces 不同阈值在park\_joy上的实验结果\relax }}{30}{table.caption.38}
-\contentsline {table}{\numberline {4.11}{\ignorespaces 不同阈值在miss\_am上的实验结果\relax }}{30}{table.caption.39}
+\contentsline {table}{\numberline {4.1}{\ignorespaces 子节点和剪枝算法park\_joy实验（比特率）\relax }}{22}{table.caption.27}
+\contentsline {table}{\numberline {4.2}{\ignorespaces 子节点和剪枝算法park\_joy实验（PSNR）\relax }}{23}{table.caption.28}
+\contentsline {table}{\numberline {4.3}{\ignorespaces 子节点和剪枝算法park\_joy实验（编码时间）\relax }}{23}{table.caption.29}
+\contentsline {table}{\numberline {4.4}{\ignorespaces 子节点和剪枝算法miss\_am\_qcif实验（编码时间）\relax }}{24}{table.caption.30}
+\contentsline {table}{\numberline {4.5}{\ignorespaces 子节点加权和剪枝算法park\_joy实验（比特率）\relax }}{24}{table.caption.31}
+\contentsline {table}{\numberline {4.6}{\ignorespaces 子节点加权和剪枝算法park\_joy实验（PSNR）\relax }}{25}{table.caption.32}
+\contentsline {table}{\numberline {4.7}{\ignorespaces 子节点加权和剪枝算法park\_joy实验（编码时间）\relax }}{25}{table.caption.33}
+\contentsline {table}{\numberline {4.8}{\ignorespaces 子节点加权和剪枝算法miss\_am\_qcif实验（编码时间）\relax }}{25}{table.caption.34}
+\contentsline {table}{\numberline {4.9}{\ignorespaces 阈值剪枝算法park\_joy实验（Threshold=p(80\%)）\relax }}{26}{table.caption.35}
+\contentsline {table}{\numberline {4.10}{\ignorespaces 不同阈值在park\_joy上的实验结果\relax }}{27}{table.caption.36}
+\contentsline {table}{\numberline {4.11}{\ignorespaces 不同阈值在miss\_am上的实验结果\relax }}{27}{table.caption.37}

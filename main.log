@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  7 JUN 2018 01:13
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  8 JUN 2018 12:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2338,7 +2338,6 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 第2章
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 (Font)              scaled to size 11.74377pt on input line 9.
-Missing character: There is no × in font ntx-Regular-tlf-ot1!
 File: figures/coding-vp9-mode.png Graphic file (type bmp)
 <figures/coding-vp9-mode.png>
 [5
@@ -2362,42 +2361,23 @@ File: figures/coding-intra-direction-demo.png Graphic file (type bmp)
 <figures/coding-intra-direction-demo.png>
  [8]
 Package hyperref Info: bookmark level for unknown equation defaults to 0 on inp
-ut line 138.
-File: figures/coding-intra-tm.png Graphic file (type bmp)
-<figures/coding-intra-tm.png>
- [9]
-LaTeX Font Info:    Try loading font information for TS1+ntxtlf on input line 1
-84.
- (d:/texlive/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
-File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
-)
-LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.045pt on input line 184.
-
-[10] [11]
+ut line 168.
+ [9] [10]
 File: figures/coding-av1-mode.png Graphic file (type bmp)
 <figures/coding-av1-mode.png>
- [12]
+ [11]
 File: figures/coding-av1-ref-list.png Graphic file (type bmp)
 <figures/coding-av1-ref-list.png>
 File: figures/coding-av1-inter-inter.png Graphic file (type bmp)
 <figures/coding-av1-inter-inter.png>
- [13]
 File: figures/coding-av1-inter-intra.png Graphic file (type bmp)
 <figures/coding-av1-inter-intra.png>
- [14]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 292.
-File: figures/coding-smooth-mode.png Graphic file (type bmp)
-<figures/coding-smooth-mode.png>
-File: figures/coding-smooth-function.png Graphic file (type bmp)
-<figures/coding-smooth-function.png>
- [15]) [16]
+ [12]) [13]
 \openout2 = `data/chap03.aux'.
 
  (./data/chap03.tex
 第3章
-[17
+[14
 
 
 
@@ -2413,12 +2393,12 @@ OML/ntxmi/m/it/12.045 B[] \LMS/ntxsy/m/n/12.045 ^^C \OT1/ntxtlf/m/n/12.045 100\
 LMS/ntxsy/m/n/12.045 ¼$ \TU/SimSun(0)/m/n/12.045 和
  []
 
-[18]
+[15]
 File: figures/algorithm-rdcost-distribution.png Graphic file (type bmp)
 <figures/algorithm-rdcost-distribution.png>
 File: figures/algorithm-rdcost-distribution-500.png Graphic file (type bmp)
 <figures/algorithm-rdcost-distribution-500.png>
- [19]
+ [16]
 File: figures/algorithm-best-rdcost-distribution.png Graphic file (type bmp)
 <figures/algorithm-best-rdcost-distribution.png>
 File: figures/algorithm-best-rdcost-distribution-500.png Graphic file (type bmp
@@ -2429,62 +2409,59 @@ File: figures/algorithm-rdcost-distribution-miss.png Graphic file (type bmp)
 File: figures/algorithm-rdcost-distribution-miss-500.png Graphic file (type bmp
 )
 <figures/algorithm-rdcost-distribution-miss-500.png>
- [20] [21]
+ [17] [18]
 File: figures/algorithm-av1-flowchart.png Graphic file (type bmp)
 <figures/algorithm-av1-flowchart.png>
- [22]
+ [19]
 File: figures/algorithm-weighted-4-mode.png Graphic file (type bmp)
 <figures/algorithm-weighted-4-mode.png>
- [23]) [24]
+ [20]) [21]
 \openout2 = `data/chap04.aux'.
 
  (./data/chap04.tex
 第4章
-[25
+[22
 
 
 
-] [26]
-Underfull \hbox (badness 10000) in paragraph at lines 102--105
-[]\TU/SimSun(0)/m/n/12.045 与 基 于 子 节 点 和 剪 枝 的 早 终 止 算 法 实 验 相 同，|  首 先 给 出 在
- []
-
-
-Underfull \hbox (badness 1584) in paragraph at lines 102--105
-\T1/ntxtlf/m/n/12.045 park_joy_90p_8_420 \TU/SimSun(0)/m/n/12.045 这 个 视 频 上 的 实
- 验 结 果，|  在 比 特 率、|  画 质、|  编 码 时 间
- []
-
-[27] [28]
-Overfull \hbox (2.94846pt too wide) in paragraph at lines 241--241
+] [23] [24] [25]
+Overfull \hbox (2.94846pt too wide) in paragraph at lines 242--242
 []|\T1/ntxtlf/m/n/11.04124 Bitrate(b/s)| 
  []
 
 
-Overfull \hbox (0.50835pt too wide) in paragraph at lines 241--241
+Overfull \hbox (0.50835pt too wide) in paragraph at lines 242--242
 []|\T1/ntxtlf/m/n/11.04124 PSNR(dB)| 
  []
 
-[29]
-Overfull \hbox (2.94846pt too wide) in paragraph at lines 262--262
+[26]
+Overfull \hbox (2.94846pt too wide) in paragraph at lines 263--263
 []|\T1/ntxtlf/m/n/11.04124 Bitrate(b/s)| 
  []
 
 
-Overfull \hbox (0.50835pt too wide) in paragraph at lines 262--262
+Overfull \hbox (0.50835pt too wide) in paragraph at lines 263--263
 []|\T1/ntxtlf/m/n/11.04124 PSNR(dB)| 
  []
 
-) [30]
+) [27]
 \openout2 = `data/chap05.aux'.
 
  (./data/chap05.tex
 第5章
-[31
+LaTeX Font Info:    Try loading font information for TS1+ntxtlf on input line 2
+5.
+(d:/texlive/texmf-dist/tex/latex/newtx/ts1ntxtlf.fd
+File: ts1ntxtlf.fd 2015/01/18 v1.0 fd file for TS1/ntxtlf
+)
+LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
+(Font)              scaled to size 12.045pt on input line 25.
+ [28
 
 
 
-]) [32] (./main.lof [33
+]) [29] (./main.lof
+[30
 
 
 
@@ -2493,19 +2470,18 @@ Overfull \hbox (0.50835pt too wide) in paragraph at lines 262--262
 \tf@lof=\write5
 \openout5 = `main.lof'.
 
- [34] (./main.lot)
+ [31] (./main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [35
+ [32
 
 
 ] (./main.loe)
 \tf@loe=\write7
 \openout7 = `main.loe'.
 
- (./main.bbl
-[36
+ (./main.bbl [33
 
 
 ]
@@ -2517,31 +2493,32 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.0pt on input line 47.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 47.
-) [37
+) [34
 
 
 ]
 \openout2 = `data/ack.aux'.
 
- (./data/ack.tex
+
+(./data/ack.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 9.
- [38
+ [35
 
 
 
-]) [39
+]) [36
 
 
 ] (./data/appendix01.tex
 附录 A
-[40
+[37
 
 
 ]
 File: figures/trans-cu-demo.png Graphic file (type bmp)
 <figures/trans-cu-demo.png>
- [41] [42]
+ [38] [39]
 File: figures/trans-algorithm.png Graphic file (type bmp)
 <figures/trans-algorithm.png>
 
@@ -2555,41 +2532,41 @@ S/ntxsy/m/n/12.045 º$ \TU/SimSun(0)/m/n/12.045 来 衡 量，|  并 且 时 间
 
 File: figures/trans-cfg.png Graphic file (type bmp)
 <figures/trans-cfg.png>
-[43]
+[40]
 File: figures/trans-result.png Graphic file (type bmp)
 <figures/trans-result.png>
- [44] [45]
+ [41] [42]
 File: figures/trans2-zmb.png Graphic file (type bmp)
 <figures/trans2-zmb.png>
- [46]
+ [43]
 File: figures/trans2-7-predict-mode.png Graphic file (type bmp)
 <figures/trans2-7-predict-mode.png>
- [47]
+ [44]
 File: figures/trans2-ac-foreman.png Graphic file (type bmp)
 <figures/trans2-ac-foreman.png>
- [48]
+ [45]
 File: figures/trans2-vbzmd.png Graphic file (type bmp)
 <figures/trans2-vbzmd.png>
- [49]
+ [46]
 File: figures/trans2-vbzmd-performance.png Graphic file (type bmp)
 <figures/trans2-vbzmd-performance.png>
- [50] [51]
+ [47] [48]
 File: figures/trans2-neighboring-block.png Graphic file (type bmp)
 <figures/trans2-neighboring-block.png>
 File: figures/trans2-predict-vec-block.png Graphic file (type bmp)
 <figures/trans2-predict-vec-block.png>
- [52]
+ [49]
 File: figures/trans2-vbbmd.png Graphic file (type bmp)
 <figures/trans2-vbbmd.png>
- [53]
+ [50]
 File: figures/trans2-result.png Graphic file (type bmp)
 <figures/trans2-result.png>
- [54])
+ [51])
 \tf@thm=\write8
 \openout8 = `main.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 81.
- [55]
+ [52]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
  (./main.aux
 (./data/chap01.aux) (./data/chap02.aux) (./data/chap03.aux) (./data/chap04.aux)
@@ -2597,19 +2574,19 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 81.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 81.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5A57FDC9C89CFC84E7BBF718C3EFB9A7.
+(rerunfilecheck)             Checksum: 8CC93A9418F3EE1C621C5E2163B2C0E2.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 32194 strings out of 492970
- 611692 string characters out of 6139398
- 713169 words of memory out of 5000000
- 35638 multiletter control sequences out of 15000+600000
- 630793 words of font info for 159 fonts, out of 8000000 for 9000
+ 32193 strings out of 492970
+ 612494 string characters out of 6139398
+ 712766 words of memory out of 5000000
+ 35640 multiletter control sequences out of 15000+600000
+ 627985 words of font info for 158 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 66i,18n,96p,2527b,667s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,16n,96p,2527b,666s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (62 pages).
+Output written on main.pdf (59 pages).
