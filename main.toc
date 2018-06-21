@@ -36,20 +36,19 @@
 \contentsline {section}{\numberline {5.2}进一步的工作}{28}{section.5.2}
 \contentsline {chapter}{插图索引}{30}{section*.38}
 \contentsline {chapter}{表格索引}{32}{section*.40}
-\contentsline {chapter}{公式索引}{33}{section*.42}
-\contentsline {chapter}{参考文献}{34}{section*.44}
-\contentsline {chapter}{致\hspace {1em}谢}{35}{section*.46}
-\contentsline {chapter}{声\hspace {1em}明}{36}{section*.48}
-\contentsline {chapter}{\numberline {附录 A}书面翻译}{37}{appendix.A}
-\contentsline {section}{\numberline {A.1}基于编码树剪枝的HEVC快速编码单元推断方法}{37}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1}引言}{37}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2}基于树剪枝的快速编码单元推断}{38}{subsection.A.1.2}
-\contentsline {subsection}{\numberline {A.1.3}实验结果}{40}{subsection.A.1.3}
-\contentsline {subsection}{\numberline {A.1.4}结论}{42}{subsection.A.1.4}
-\contentsline {section}{\numberline {A.2}一种有效的H.264上的可变块大小早终止算法}{42}{section.A.2}
-\contentsline {subsection}{\numberline {A.2.1}引言}{42}{subsection.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}早终止算法}{43}{subsection.A.2.2}
-\contentsline {subsubsection}{\numberline {A.2.2.1}可变块大小零运动推断}{43}{subsubsection.A.2.2.1}
-\contentsline {subsubsection}{\numberline {A.2.2.2}可变块大小最佳运动推断}{48}{subsubsection.A.2.2.2}
-\contentsline {subsection}{\numberline {A.2.3}模拟结果}{50}{subsection.A.2.3}
-\contentsline {subsection}{\numberline {A.2.4}结论}{51}{subsection.A.2.4}
+\contentsline {chapter}{参考文献}{33}{section*.42}
+\contentsline {chapter}{致\hspace {1em}谢}{34}{section*.44}
+\contentsline {chapter}{声\hspace {1em}明}{35}{section*.46}
+\contentsline {chapter}{\numberline {附录 A}书面翻译}{36}{appendix.A}
+\contentsline {section}{\numberline {A.1}基于编码树剪枝的HEVC快速编码单元推断方法}{36}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}引言}{36}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}基于树剪枝的快速编码单元推断}{37}{subsection.A.1.2}
+\contentsline {subsection}{\numberline {A.1.3}实验结果}{39}{subsection.A.1.3}
+\contentsline {subsection}{\numberline {A.1.4}结论}{41}{subsection.A.1.4}
+\contentsline {section}{\numberline {A.2}一种有效的H.264上的可变块大小早终止算法}{41}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}引言}{41}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}早终止算法}{42}{subsection.A.2.2}
+\contentsline {subsubsection}{\numberline {A.2.2.1}可变块大小零运动推断}{42}{subsubsection.A.2.2.1}
+\contentsline {subsubsection}{\numberline {A.2.2.2}可变块大小最佳运动推断}{47}{subsubsection.A.2.2.2}
+\contentsline {subsection}{\numberline {A.2.3}模拟结果}{49}{subsection.A.2.3}
+\contentsline {subsection}{\numberline {A.2.4}结论}{50}{subsection.A.2.4}

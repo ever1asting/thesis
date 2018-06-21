@@ -1,11 +1,10 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  16 MAY 2018 15:49
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  21 JUN 2018 20:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **shuji
 (./shuji.tex
-LaTeX2e <2018-04-01> patch level 2
-Babel <3.18> and hyphenation patterns for 84 language(s) loaded.
+LaTeX2e <2018-04-01> patch level 4
 (./thuthesis.cls
 Document Class: thuthesis 2018/04/24 5.4.4 Tsinghua University Thesis Template
 (d:/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
@@ -1840,12 +1839,12 @@ File: t1ntxtlf.fd 2015/01/17 v1.0 font definition file for T1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 12.045pt on input line 7.
-
-No file shuji.aux.
+ (./shuji.aux)
 \openout1 = `shuji.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/ntxmi/m/it on input line 7.
 LaTeX Font Info:    Try loading font information for OML+ntxmi on input line 7.
+
 
 (d:/texlive/texmf-dist/tex/latex/newtx/omlntxmi.fd
 File: omlntxmi.fd 2015/08/25 Fontinst v1.933 font definitions for OML/ntxmi.
@@ -1927,12 +1926,11 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 7.
 LaTeX Info: Redefining \pageref on input line 7.
 LaTeX Info: Redefining \nameref on input line 7.
+ (./shuji.out)
+(./shuji.out)
 \@outlinefile=\write3
 \openout3 = `shuji.out'.
 
-
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
@@ -2027,64 +2025,27 @@ Package hyperref Warning: Rerun to get /PageLabels entry.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 (Font)              scaled to size 15.05624pt on input line 14.
 Unknown feature `' in font `FangSong'.
-[1
-
-] [2] [3]
-LaTeX Font Info:    Try loading font information for OT1+ntxtlf on input line 2
-1.
- (d:/texlive/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
-File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
-)
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 15.05624pt on input line 21.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.045pt on input line 21.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.03374pt on input line 21.
-LaTeX Font Info:    Try loading font information for U+ntxmia on input line 21.
-
-
-(d:/texlive/texmf-dist/tex/latex/newtx/untxmia.fd
-File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
-)
-LaTeX Font Info:    Try loading font information for U+ntxsym on input line 21.
-
-
-(d:/texlive/texmf-dist/tex/latex/newtx/untxsym.fd
-File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
-)
-LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 21.
-
-
-(d:/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd
-File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
-)
 \tf@thm=\write4
 \openout4 = `shuji.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 24.
- [4]
+[1
+
+]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 24.
  (./shuji.aux)
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 24.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 24.
-
-
-Package rerunfilecheck Warning: File `shuji.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `shuji.out':
-(rerunfilecheck)             Before: 
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E.
+Package rerunfilecheck Info: File `shuji.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E.
  ) 
 Here is how much of TeX's memory you used:
- 30233 strings out of 492970
- 566361 string characters out of 6139398
- 649370 words of memory out of 5000000
- 33903 multiletter control sequences out of 15000+600000
- 552537 words of font info for 62 fonts, out of 8000000 for 9000
+ 30147 strings out of 492970
+ 564618 string characters out of 6139398
+ 649539 words of memory out of 5000000
+ 33831 multiletter control sequences out of 15000+600000
+ 541491 words of font info for 38 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 66i,7n,96p,2528b,397s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,6n,96p,2528b,397s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on shuji.pdf (4 pages).
+Output written on shuji.pdf (1 page).

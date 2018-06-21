@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  8 JUN 2018 12:06
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex 2018.5.16)  21 JUN 2018 20:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2078,7 +2078,7 @@ LaTeX Info: Redefining \nameref on input line 19.
 
 (./data/cover.tex)
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 26.09749pt on input line 27.
+(Font)              scaled to size 26.09749pt on input line 25.
 
 *************************************************
 * fontspec warning: "script-not-exist"
@@ -2112,7 +2112,7 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 . - 'small caps'  (m/sc) with NFSS spec.: 
 .................................................
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 36.135pt on input line 27.
+(Font)              scaled to size 36.135pt on input line 25.
 \g__fontspec_family_SimHei_int=\count390
 .................................................
 . fontspec info: "no-font-shape"
@@ -2141,15 +2141,15 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 . - 'small caps'  (m/sc) with NFSS spec.: 
 .................................................
 LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <36.135> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 27.
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 25.
 LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 36.135pt on input line 27.
+(Font)              scaled to size 36.135pt on input line 25.
 
 LaTeX Font Warning: Font shape `TU/SimHei(0)/bx/n' undefined
-(Font)              using `TU/SimHei(0)/m/n' instead on input line 27.
+(Font)              using `TU/SimHei(0)/m/n' instead on input line 25.
 
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 18.06749pt on input line 27.
+(Font)              scaled to size 18.06749pt on input line 25.
 \g__fontspec_family_FangSong_int=\count391
 .................................................
 . fontspec info: "no-font-shape"
@@ -2179,31 +2179,31 @@ LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
 . - 'small caps'  (m/sc) with NFSS spec.: 
 .................................................
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 16.06pt on input line 27.
+(Font)              scaled to size 16.06pt on input line 25.
 LaTeX Font Info:    Try loading font information for OT1+ntxtlf on input line 2
-7.
+5.
 (d:/texlive/texmf-dist/tex/latex/newtx/ot1ntxtlf.fd
 File: ot1ntxtlf.fd 2015/01/17 v1.0 font definition file for OT1/ntx/tlf
 )
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 16.06pt on input line 27.
+(Font)              scaled to size 16.06pt on input line 25.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 14.05249pt on input line 27.
+(Font)              scaled to size 14.05249pt on input line 25.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 10.53937pt on input line 27.
-LaTeX Font Info:    Try loading font information for U+ntxmia on input line 27.
+(Font)              scaled to size 10.53937pt on input line 25.
+LaTeX Font Info:    Try loading font information for U+ntxmia on input line 25.
 
 
 (d:/texlive/texmf-dist/tex/latex/newtx/untxmia.fd
 File: untxmia.fd 2018/04/14 Fontinst v1.933 font definitions for U/ntxmia.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsym on input line 27.
+LaTeX Font Info:    Try loading font information for U+ntxsym on input line 25.
 
 
 (d:/texlive/texmf-dist/tex/latex/newtx/untxsym.fd
 File: untxsym.fd 2015/03/20 Fontinst v1.933 font definitions for U/ntxsym.
 )
-LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 27.
+LaTeX Font Info:    Try loading font information for U+ntxsyc on input line 25.
 
 
 (d:/texlive/texmf-dist/tex/latex/newtx/untxsyc.fd
@@ -2241,18 +2241,20 @@ File: untxsyc.fd 2012/04/12 Fontinst v1.933 font definitions for U/ntxsyc.
 
 
 ]
-LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 22.08249pt on input line 27.
-LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12.045> not available
-(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 27.
-LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
-(Font)              scaled to size 12.045pt on input line 27.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 12.045pt on input line 27.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 27.
-LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
-(Font)              scaled to size 6.0pt on input line 27.
+File: figures/auth.pdf Graphic file (type pdf)
+<use figures/auth.pdf>
+File: figures/auth.pdf Graphic file (type pdf)
+<use figures/auth.pdf>
+File: figures/auth.pdf Graphic file (type pdf)
+<use figures/auth.pdf, page 1>
+File: figures/auth.pdf Graphic file (type pdf)
+<use figures/auth.pdf, page 1>
+File: figures/auth.pdf Graphic file (type pdf)
+<use figures/auth.pdf, page 1>
+File: figures/auth.pdf Graphic file (type pdf)
+<use figures/auth.pdf, page 1>
+File: figures/auth.pdf Graphic file (type pdf)
+<use figures/auth.pdf, page 1>
  [2
 
 ]
@@ -2267,13 +2269,13 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 . 
 . Could not resolve font "Microsoft YaHei/I" (it probably doesn't exist).
 .................................................
-LaTeX Font Info:    Try loading font information for T1+qhv on input line 27.
+LaTeX Font Info:    Try loading font information for T1+qhv on input line 25.
 
 (d:/texlive/texmf-dist/tex/latex/tex-gyre/t1qhv.fd
 File: t1qhv.fd 2009/09/25 v1.2 font definition file for T1/qhv
 )
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 10.84042pt on input line 27.
+(Font)              scaled to size 10.84042pt on input line 25.
 .................................................
 . fontspec info: "defining-font"
 . 
@@ -2293,11 +2295,21 @@ LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
 . - 'bold italic small caps'  (bx/itsc) with NFSS spec.: 
 .................................................
 LaTeX Font Info:    Font shape `T1/qhv/m/n' will be
-(Font)              scaled to size 13.55052pt on input line 27.
+(Font)              scaled to size 13.55052pt on input line 25.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 12.045pt on input line 25.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 8.0pt on input line 25.
+LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
+(Font)              scaled to size 6.0pt on input line 25.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 8.0pt on input line 27.
+(Font)              scaled to size 8.0pt on input line 25.
+LaTeX Font Info:    Font shape `T1/ntxtlf/bx/n' in size <12.045> not available
+(Font)              Font shape `T1/ntxtlf/b/n' tried instead on input line 25.
+LaTeX Font Info:    Font shape `T1/ntxtlf/b/n' will be
+(Font)              scaled to size 12.045pt on input line 25.
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/n' will be
-(Font)              scaled to size 9.03374pt on input line 27.
+(Font)              scaled to size 9.03374pt on input line 25.
  [1
 
 
@@ -2474,14 +2486,7 @@ LaTeX Font Info:    Font shape `TS1/ntxtlf/m/n' will be
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
- [32
-
-
-] (./main.loe)
-\tf@loe=\write7
-\openout7 = `main.loe'.
-
- (./main.bbl [33
+ (./main.bbl [32
 
 
 ]
@@ -2493,32 +2498,45 @@ LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 7.0pt on input line 47.
 LaTeX Font Info:    Font shape `OT1/ntxtlf/m/n' will be
 (Font)              scaled to size 5.0pt on input line 47.
-) [34
+) [33
 
 
 ]
 \openout2 = `data/ack.aux'.
 
-
-(./data/ack.tex
+ (./data/ack.tex
 LaTeX Font Info:    Font shape `T1/ntxtlf/m/sc' will be
 (Font)              scaled to size 12.045pt on input line 9.
- [35
+File: figures/statement.pdf Graphic file (type pdf)
+<use figures/statement.pdf>
+File: figures/statement.pdf Graphic file (type pdf)
+<use figures/statement.pdf>
+File: figures/statement.pdf Graphic file (type pdf)
+<use figures/statement.pdf, page 1>
+File: figures/statement.pdf Graphic file (type pdf)
+<use figures/statement.pdf, page 1>
+ [34
 
 
 
-]) [36
-
-
-] (./data/appendix01.tex
+]
+File: figures/statement.pdf Graphic file (type pdf)
+<use figures/statement.pdf, page 1>
+File: figures/statement.pdf Graphic file (type pdf)
+<use figures/statement.pdf, page 1>
+File: figures/statement.pdf Graphic file (type pdf)
+<use figures/statement.pdf, page 1>
+ [35])
+(./data/appendix01.tex
 附录 A
-[37
+[36
+\FN@pp@footnotehinttrue 
 
 
 ]
 File: figures/trans-cu-demo.png Graphic file (type bmp)
 <figures/trans-cu-demo.png>
- [38] [39]
+ [37] [38]
 File: figures/trans-algorithm.png Graphic file (type bmp)
 <figures/trans-algorithm.png>
 
@@ -2532,61 +2550,83 @@ S/ntxsy/m/n/12.045 º$ \TU/SimSun(0)/m/n/12.045 来 衡 量，|  并 且 时 间
 
 File: figures/trans-cfg.png Graphic file (type bmp)
 <figures/trans-cfg.png>
-[40]
+[39]
 File: figures/trans-result.png Graphic file (type bmp)
 <figures/trans-result.png>
- [41] [42]
+ [40] [41]
 File: figures/trans2-zmb.png Graphic file (type bmp)
 <figures/trans2-zmb.png>
- [43]
+ [42]
 File: figures/trans2-7-predict-mode.png Graphic file (type bmp)
 <figures/trans2-7-predict-mode.png>
- [44]
+ [43]
 File: figures/trans2-ac-foreman.png Graphic file (type bmp)
 <figures/trans2-ac-foreman.png>
- [45]
+ [44]
 File: figures/trans2-vbzmd.png Graphic file (type bmp)
 <figures/trans2-vbzmd.png>
- [46]
+ [45]
 File: figures/trans2-vbzmd-performance.png Graphic file (type bmp)
 <figures/trans2-vbzmd-performance.png>
- [47] [48]
+ [46] [47]
 File: figures/trans2-neighboring-block.png Graphic file (type bmp)
 <figures/trans2-neighboring-block.png>
 File: figures/trans2-predict-vec-block.png Graphic file (type bmp)
 <figures/trans2-predict-vec-block.png>
- [49]
+ [48]
 File: figures/trans2-vbbmd.png Graphic file (type bmp)
 <figures/trans2-vbbmd.png>
- [50]
+ [49]
 File: figures/trans2-result.png Graphic file (type bmp)
 <figures/trans2-result.png>
- [51])
-\tf@thm=\write8
-\openout8 = `main.thm'.
+ [50])
+File: figures/record.pdf Graphic file (type pdf)
+<use figures/record.pdf>
+File: figures/record.pdf Graphic file (type pdf)
+<use figures/record.pdf>
+File: figures/record.pdf Graphic file (type pdf)
+<use figures/record.pdf, page 1>
+File: figures/record.pdf Graphic file (type pdf)
+<use figures/record.pdf, page 1>
+ [51]
+File: figures/record.pdf Graphic file (type pdf)
+<use figures/record.pdf, page 1>
+File: figures/record.pdf Graphic file (type pdf)
+<use figures/record.pdf, page 1>
+File: figures/record.pdf Graphic file (type pdf)
+<use figures/record.pdf, page 1>
+ [52]
+File: figures/record.pdf Graphic file (type pdf)
+<use figures/record.pdf, page 2>
+File: figures/record.pdf Graphic file (type pdf)
+<use figures/record.pdf, page 2>
+File: figures/record.pdf Graphic file (type pdf)
+<use figures/record.pdf, page 2>
+ [53]
+\tf@thm=\write7
+\openout7 = `main.thm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 81.
- [52]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
- (./main.aux
-(./data/chap01.aux) (./data/chap02.aux) (./data/chap03.aux) (./data/chap04.aux)
-(./data/chap05.aux) (./data/ack.aux))
+
+(./main.aux (./data/chap01.aux) (./data/chap02.aux) (./data/chap03.aux)
+(./data/chap04.aux) (./data/chap05.aux) (./data/ack.aux))
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 81.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 81.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 8CC93A9418F3EE1C621C5E2163B2C0E2.
+(rerunfilecheck)             Checksum: C6E2C1176C9606BC003CE705489E63CE.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 32193 strings out of 492970
- 612494 string characters out of 6139398
- 712766 words of memory out of 5000000
- 35640 multiletter control sequences out of 15000+600000
- 627985 words of font info for 158 fonts, out of 8000000 for 9000
+ 32208 strings out of 492970
+ 612955 string characters out of 6139398
+ 712669 words of memory out of 5000000
+ 35653 multiletter control sequences out of 15000+600000
+ 625169 words of font info for 156 fonts, out of 8000000 for 9000
  1349 hyphenation exceptions out of 8191
- 66i,16n,96p,2527b,666s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 66i,18n,96p,2527b,666s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (59 pages).
+Output written on main.pdf (60 pages).

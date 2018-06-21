@@ -22,8 +22,8 @@
 \frontmatter
 \input{data/cover}
 % 如果使用授权说明扫描页，将可选参数中指定为扫描得到的 PDF 文件名，例如：
-% \makecover[scan-auth.pdf]
-\makecover
+\makecover[auth.pdf]
+% \makecover
 
 %% 目录
 \tableofcontents
@@ -51,7 +51,7 @@
 % 表格索引
 \listoftables
 % 公式索引
-\listofequations
+% \listofequations
 
 
 %% 参考文献
@@ -77,5 +77,5 @@
 
 % %% 本科生进行格式审查是需要下面这个表格，答辩可能不需要。选择性留下。
 % % 综合论文训练记录表
-% \includepdf[pages=-]{scan-record.pdf}
+\includepdf[pages=-]{record.pdf}
 \end{document}
